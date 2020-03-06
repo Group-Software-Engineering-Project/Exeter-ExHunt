@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/stylesheets/auth.scss"/>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<section>
+  <form action="/signup" method="POST" id="form-container">    
+    <input id="username" type="text" name="username" title="username" placeholder="Enter your username">
+    <label for="username">username</label>
+    <br>
+    <input id="password" type="password" name="password" placeholder="Enter your password">
+    <label for="password">password</label>
+    <br>
+    <input id="role" type="role" name="role" placeholder="Hunter | Creator">
+    <label for="role">Role</label>
+    <br>
+    <input id="email_address" type="email_address" name="email_address" placeholder="University e-mail?">
+    <label for="email_address">Email</label>
+    <br>
+    <input id="personal_tutor" type="personal_tutor" name="personal_tutor" placeholder="Tutor">
+    <label for="personal_tutor">Tutor</label>
+    <% if (typeof message !== "undefined") { %>
+      <div class="error-message"><%= message %></div>
+    <% } %>
+    <br>
+    <button>Create account</button>
+    <br><br>
+    <p class="account-message">
+      Do you already have an account?
+      <br><br>
+      <span class="label label-success"><a href="/login">Log me in!</a></span>
+    </p>
+    </form>
+</section>

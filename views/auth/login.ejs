@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/stylesheets/auth.scss"/>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<% if (typeof(errorMessage) !== "undefined") { %>
+  <div class="error-message"><%= errorMessage %></div>
+<% } %>
+<section>
+  <form action="/login" method="POST" id="form-container" class="login">
+    <input type="text" name="username" title="username" placeholder="Enter your username">
+    <label for="username">username</label>
+    <br><br>
+    <input type="password" name="password" placeholder="Enter your password">
+    <label for="password">password</label>
+    <br>
+    <button>Sign in</button>
+    <br><br>
+    <p class="account-message">
+      Don't have an account? 
+      <br><br>
+      <span class="label label-success"><a href="/signup">Sign me up!</a></span>
+    </p>
+  </form>
+</section>
