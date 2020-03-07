@@ -91,6 +91,7 @@ authRoutes.post("/signup", urlencodedParser, (req, res, next) => {
       if (err) {
         res.render("auth/signup", { message: "Something went wrong" });
       } else {
+        req.session.currentUser = newUser;
         if (newUser.role == "Hunter") {
           res.redirect("/hunter");
         } else {
