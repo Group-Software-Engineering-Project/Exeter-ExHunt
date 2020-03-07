@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 const usersRouter = require('./routes/users');
 const authRoutes = require("./routes/auth-routes");
 const hunterRoutes = require("./routes/hunters");
-const creatorRoutes = require("./routes/creators");
+const creatorRoutes = require("./routes/trackLanding");
+const challengeLoopRoutes = require('./routes/trackCreatorloop')
 const createError = require('http-errors');
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
@@ -76,7 +77,8 @@ app.use(expressLayouts);
 app.use('/users', usersRouter);
 app.use('/', authRoutes);
 app.use('/hunters', hunterRoutes); 
-app.use('/creators', creatorRoutes);
+app.use('/creator', creatorRoutes);
+app.use('/challenge_loop',challengeLoopRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

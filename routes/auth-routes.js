@@ -11,7 +11,7 @@ const cookieSession = require('cookie-session');
 const session = require('express-session');
 
 // Bcrypt to encrypt passwords
-const bcrypt     = require("bcrypt");
+const bcrypt     = require("bcryptjs");
 const bcryptSalt = 10;
 
 authRoutes.get("/", (req, res, next) => {
@@ -43,7 +43,7 @@ authRoutes.post("/login", urlencodedParser, (req, res, next) => {
       } else {
         if (bcrypt.compareSync(password, user.password)) {
           req.session.currentUser = user;
-          const address = (user.role == "Hunter") ? "/hunters" : "/creators"
+          const address = (user.role == "Hunter") ? "/hunters" : "/creator"
           res.redirect(address);
         } else {
           res.render("auth/login", {
