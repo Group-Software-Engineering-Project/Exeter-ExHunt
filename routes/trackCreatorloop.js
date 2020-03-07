@@ -61,8 +61,9 @@ trackCreator.post('/upload',upload.any(),function(req,res){
         console.log(number_of_challenges);
         console.log(tName);
         console.log(req.files);
-        Tracks.findOne( tName , "name", (err, Name) => {
+        Tracks.findOne( {name:tName} , "name", (err, Name) => {
             if (Name !== null) {
+                console.log(Name);
                 res.render('creator/challenge_loop.ejs', {title: 'challenge_loop',heading:"Intro",x:x,num_challenges:number_of_challenges, username: username,message:"*Name already taken"});
               return;
             }
