@@ -2336,3 +2336,11 @@ node_modules/xtend/mutable.js
 node_modules/xtend/package.json
 node_modules/xtend/README.md
 node_modules/xtend/test.js
+.DS_Store
+node_modules/fsevents/fsevents.d.ts
+node_modules/fsevents/fsevents.js
+node_modules/fsevents/fsevents.node
+node_modules/fsevents/LICENSE
+node_modules/fsevents/package.json
+node_modules/fsevents/README.md
+public/.DS_Store
