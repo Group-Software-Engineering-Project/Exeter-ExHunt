@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Challenge Creation</title>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/creator_style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            window.history.forward(); 
+            function noBack() {
+                window.history.forward();
+            }
+        </script>
+    </head>
+
+    <body style="text-align:center;background: url('/images/exerterbanner.jpg') no-repeat top fixed; background-size: cover;">
+        <h1 class="title" style="font-size: 3vw;"><%= heading %></h1>
+        <div class="back_div">
+            <form action="/challenge_loop/upload" method="POST" enctype="multipart/form-data" id="form1">
+                <% if (x == 0) { %>
+                    <label class="form_heading"><b>Choose Track Name:</b></label>
+                    <p class="form_p">What would you like to call your Track?</p>
+                    <input class="upload" type="text" name="tName" id="tName" required>
+                    <label class="form_heading"><b>Choose Number of Challenges:</b></label>
+                    <p class="form_p">How many challenges will your track have?</p>
+                    <input class ="upload" type="number" name="num_challenges" id="num_challenges" min="2" max="10" required>
+                    <label class="form_heading" for="intro_vid"><b>Upload Introduction Video</b></label>
+                    <p class="form_p">Upload here the introduction video, explaining a but about what the game will entail</p>
+                    <input class="upload" type="file" name="intro_vid" id="intro_vid" required>
+                <% } else { %>
+                    <label class="form_heading" for="welcome_vid"><b>Upload Welcome Video</b></label>
+                    <p class="form_p">Upload here the video congratulating the user on finding this location</p>
+                    <input class="upload" type="file" name="welcome_vid" id="welcome_vid" required>
+                <% } %>
+
+                <% if (x==num_challenges) { %>
+                    <label class="form_heading" for="outro_vid"><b>Upload Outro Video</b></label>
+                    <p class="form_p">Upload the outro/goodbye video signalling the end of the game</p>
+                    <input class="upload" type="file" name="outro_vid" id="outro_vid" required>
+                <% } else { %>
+                    <label class="form_heading"><b>Upload Clue to Next Location</b></label>
+                    <p class="form_p">Upload the video of the hint given at this location for the next challenge</p> 
+                    <input class="upload" type="file" name="clue_vid" id="clue_vid" required>
+                <% } %>
+
+                <% if (x!=0) { %>
+                    <label class="form_heading"><b>Upload Location Co-ordinates</b></label>
+                    <p class="form_p">Upload the x and y coordinates of this location</p>
+                    <input type="number" name="x" id="x" required>
+                    <input type="number" name="y" id="y" required>
+                <% } %>
+
+                <input class="button challenge" type="submit" id="submit">
+
+            </form>
+        </div>
+    </body>
+    
+</html>
