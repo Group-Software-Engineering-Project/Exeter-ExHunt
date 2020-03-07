@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
     res.redirect('/login')
   }
   else {
-    res.render('creator/start', { title: 'Express' });
+    res.render('creator/start', { title: 'Express', username: req.session.currentUser.username});
     console.log(req.session);
   }
 
