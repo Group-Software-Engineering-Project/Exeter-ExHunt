@@ -36,13 +36,21 @@ const storage = new GridFsStorage({
 
 const upload = multer({storage});
 
+var username;
 var track;
 var number_of_challenges = 1000;
 var x = 0;
 trackCreator.get('/', function(req, res) {
     x=0;
     number_of_challenges=1000
-    res.render('creator/challenge_loop', { title: 'challenge_loop',heading:'Intro', x:x, num_challenges:number_of_challenges});
+    if (req.session.currentUser == undefined || req.session.currentUser.role == 'Hunter') {
+        res.redirect('/login')
+      }
+      else {
+        res.render('creator/challenge_loop', { title: 'challenge_loop',heading:'Intro', x:x, num_challenges:number_of_challenges});
+        username = req.session.currentUser.username;
+      }
+    
 });
 
 
@@ -70,7 +78,12 @@ trackCreator.post('/upload',upload.any(),function(req,res){
         console.log(req.files);
         track = createChallenge(track,track._id,req.files[0].id,req.files[1].id,[req.body.x,req.body.y]);
         track.save();
-        res.render('creator/finish_creation.ejs');
+        if (req.session.currentUser == undefined || req.session.currentUser.role == 'Hunter') {
+            res.redirect('/login')
+          }
+          else {
+            res.render('creator/finish_creation.ejs');
+          }
     }
     else {
         console.log([req.body.x,req.body.y]);
