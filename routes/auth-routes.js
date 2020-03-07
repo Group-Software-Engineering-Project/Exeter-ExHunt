@@ -7,6 +7,8 @@ const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
 // User model
 const User = require("../models/user");
+const cookieSession = require('cookie-session'); 
+const session = require('express-session');
 
 // Bcrypt to encrypt passwords
 const bcrypt     = require("bcrypt");
@@ -16,15 +18,40 @@ authRoutes.get("/", (req, res, next) => {
   res.render("auth/signup");
 });
 
-authRoutes.post("/login", passport.authenticate("local", {
-  successRedirect: "/creator",
-  failureRedirect: "/login",
-  failureFlash: true,
-  passReqToCallback: true
-}));
-
 authRoutes.get("/login", (req, res, next) => {
-  res.render("auth/login", { "message": req.flash("error") });
+  res.render("auth/login");
+});
+
+authRoutes.post("/login", urlencodedParser, (req, res, next) => {
+  const username = req.body.username;
+  const password = req.body.password;
+
+  if (username === "" || password === "") {
+    res.render("auth/login", {
+      errorMessage: "Indicate a username and a password to log in"
+    });
+    return;
+  }
+
+  User.findOne({ "username": username}, 
+    (err, user) => {
+      if (err || !user) {
+        res.render("auth/login", {
+          errorMessage: "The username doesn't exist"
+        });
+        return;
+      } else {
+        if (bcrypt.compareSync(password, user.password)) {
+          req.session.currentUser = user;
+          const address = (user.role == "Hunter") ? "/hunters" : "/creators"
+          res.redirect(address);
+        } else {
+          res.render("auth/login", {
+            errorMessage: "Incorrect password"
+          });
+        }
+      }
+  });
 });
 
 authRoutes.post("/signup", urlencodedParser, (req, res, next) => {

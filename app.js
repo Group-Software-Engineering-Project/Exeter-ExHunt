@@ -1,6 +1,10 @@
+const passport = require('passport')
+const LocalStrategy = require("passport-local").Strategy;
+const mongoose = require('mongoose');
 const usersRouter = require('./routes/users');
 const authRoutes = require("./routes/auth-routes");
-const indexRouter = require('./routes/index');
+const hunterRoutes = require("./routes/hunters");
+const creatorRoutes = require("./routes/creators");
 const createError = require('http-errors');
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
@@ -8,15 +12,12 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require("express-session");
-const bcrypt = require("bcrypt");
-const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
 const flash = require("connect-flash");
 const bodyParser = require('body-parser');
-
+const User = require("./models/user");
 const app = express();
+
 // Mongoose configuration
-const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/exhunt");
 
 // view engine setup
@@ -26,50 +27,44 @@ app.set('layout', 'layouts/main-layout');
 
 // parse various different custom JSON types as JSON
 app.use(bodyParser.json({ type: 'application/*+json' }));
- 
-// parse some custom thing into a Buffer
-app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }));
-
-passport.serializeUser((user, cb) => {
-  cb(null, user._id);
-});
-
-passport.deserializeUser((id, cb) => {
-  User.findOne({ "_id": id }, (err, user) => {
-    if (err) { return cb(err); }
-    cb(null, user);
-  });
-});
-
 app.use(flash());
-passport.use(new LocalStrategy({
-  passReqToCallback: true
-}, (username, password, next) => {
-  User.findOne({ username }, (err, user) => {
-    if (err) {
-      return next(err);
-    }
-    if (!user) {
-      return next(null, false, { message: "Incorrect username" });
-    }
-    if (!bcrypt.compareSync(password, user.password)) {
-      return next(null, false, { message: "Incorrect password" });
-    }
-
-    return next(null, user);
-  });
-}));
 
 app.use(session({
   secret: "our-passport-local-strategy-app",
   resave: true,
   saveUninitialized: true
 }));
-app.use(passport.initialize());
-app.use(passport.session());
+// store the user._id in the session
+passport.serializeUser((user, done) => {
+  done(null, user._id);
+});
+// fetch the user._id from database
+passport.deserializeUser((id, done) => {
+  User.findById(id, (err, user) => {
+    done(err, user);
+  });
+});
+// parse some custom thing into a Buffer
+app.use(session({ resave: true, secret: '123456', saveUninitialized: true }));
 
-app.use(session({ resave: true ,secret: '123456' , saveUninitialized: true}));
-app.use(bodyParser.text({ type: 'text/html' }))
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function(err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+));
+
+app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json());
+
 app.use('/', authRoutes);
 app.use(logger('dev'));
 app.use(express.json());
@@ -80,6 +75,8 @@ app.use(expressLayouts);
 
 app.use('/users', usersRouter);
 app.use('/', authRoutes);
+app.use('/hunters', hunterRoutes); 
+app.use('/creators', creatorRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -96,5 +93,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 module.exports = app;

@@ -10,6 +10,7 @@
 <% if (typeof(errorMessage) !== "undefined") { %>
   <div class="error-message"><%= errorMessage %></div>
 <% } %>
+<% include ../partials/header.ejs  %>
 <section>
   <form action="/login" method="POST" id="form-container" class="login">
     <input type="text" name="username" title="username" placeholder="Enter your username">
@@ -19,11 +20,16 @@
     <label for="password">password</label>
     <br>
     <button>Sign in</button>
+    <% if (typeof(errorMessage) !== "undefined") { %>
+      <div class="error-message"><%= errorMessage %></div>
+    <% } %>
     <br><br>
     <p class="account-message">
       Don't have an account? 
       <br><br>
-      <span class="label label-success"><a href="/signup">Sign me up!</a></span>
+      <span class="label label-success"><a href="/">Sign me up!</a></span>
     </p>
   </form>
 </section>
+<canvas style="z-index: -1"id="canvas1"></canvas>
+<% include ../partials/footer.ejs %>
