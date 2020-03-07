@@ -25,21 +25,21 @@
                     <input class ="upload" type="number" name="num_challenges" id="num_challenges" min="2" max="10" required>
                     <label class="form_heading" for="intro_vid"><b>Upload Introduction Video</b></label>
                     <p class="form_p">Upload here the introduction video, explaining a but about what the game will entail</p>
-                    <input class="upload" type="file" name="intro_vid" id="intro_vid" required>
+                    <input class="upload v_upload" type="file" name="intro_vid" id="intro_vid" required>
                 <% } else { %>
                     <label class="form_heading" for="welcome_vid"><b>Upload Welcome Video</b></label>
                     <p class="form_p">Upload here the video congratulating the user on finding this location</p>
-                    <input class="upload" type="file" name="welcome_vid" id="welcome_vid" required>
+                    <input class="upload v_upload" type="file" name="welcome_vid" id="welcome_vid" required>
                 <% } %>
 
                 <% if (x==num_challenges) { %>
                     <label class="form_heading" for="outro_vid"><b>Upload Outro Video</b></label>
                     <p class="form_p">Upload the outro/goodbye video signalling the end of the game</p>
-                    <input class="upload" type="file" name="outro_vid" id="outro_vid" required>
+                    <input class="upload v_upload" type="file" name="outro_vid" id="outro_vid" required>
                 <% } else { %>
                     <label class="form_heading"><b>Upload Clue to Next Location</b></label>
                     <p class="form_p">Upload the video of the hint given at this location for the next challenge</p> 
-                    <input class="upload" type="file" name="clue_vid" id="clue_vid" required>
+                    <input class="upload v_upload" type="file" name="clue_vid" id="clue_vid" required>
                 <% } %>
 
                 <% if (x!=0) { %>
