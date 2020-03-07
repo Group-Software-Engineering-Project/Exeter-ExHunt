@@ -48,7 +48,7 @@ trackCreator.get('/', function(req, res) {
       }
       else {
         username = req.session.currentUser.username;
-        res.render('creator/challenge_loop', { title: 'challenge_loop',heading:'Intro', x:x, num_challenges:number_of_challenges, username: username});
+        res.render('creator/challenge_loop', { title: 'challenge_loop',heading:'Intro', x:x, num_challenges:number_of_challenges, username: username, message:""});
       }
     
 });
@@ -61,17 +61,25 @@ trackCreator.post('/upload',upload.any(),function(req,res){
         console.log(number_of_challenges);
         console.log(tName);
         console.log(req.files);
-        track = createTrack(tName, username,number_of_challenges);
-        track = createChallenge(track,track._id,req.files[0].id,req.files[1].id,[0,0]);
-        x++;
-        res.render('creator/challenge_loop.ejs', {title: 'challenge_loop',heading:`Location ${x}`,x:x,num_challenges:number_of_challenges, username: username});
+        Tracks.findOne( tName , "name", (err, Name) => {
+            if (Name !== null) {
+                res.render('creator/challenge_loop.ejs', {title: 'challenge_loop',heading:"Intro",x:x,num_challenges:number_of_challenges, username: username,message:"*Name already taken"});
+              return;
+            }
+            else {
+                track = createTrack(tName, username,number_of_challenges);
+                track = createChallenge(track,track._id,req.files[0].id,req.files[1].id,[0,0]);
+                x++;
+                res.render('creator/challenge_loop.ejs', {title: 'challenge_loop',heading:`Location ${x}`,x:x,num_challenges:number_of_challenges, username: username,message:""});
+            }
+        });
     }
     else if (x==number_of_challenges-1) {
         console.log([req.body.x,req.body.y]);
         console.log(req.files);
         track = createChallenge(track,track._id,req.files[0].id,req.files[1].id,[req.body.x,req.body.y]);
         x++;
-        res.render('creator/challenge_loop.ejs', {title: 'challenge_loop',heading:'Last Location',x:x,num_challenges:number_of_challenges, username: username});
+        res.render('creator/challenge_loop.ejs', {title: 'challenge_loop',heading:'Last Location',x:x,num_challenges:number_of_challenges, username: username,message:""});
     }
     else if (x==number_of_challenges) {
         console.log([req.body.x,req.body.y]);
@@ -90,7 +98,7 @@ trackCreator.post('/upload',upload.any(),function(req,res){
         console.log(req.files);
         track = createChallenge(track,track._id,req.files[0].id,req.files[1].id,[req.body.x,req.body.y]);
         x++;
-        res.render('creator/challenge_loop.ejs', {title: 'challenge_loop',heading:`Location ${x}`,x:x,num_challenges:number_of_challenges, username: username});
+        res.render('creator/challenge_loop.ejs', {title: 'challenge_loop',heading:`Location ${x}`,x:x,num_challenges:number_of_challenges, username: username,message:""});
     }
     
 });

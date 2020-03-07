@@ -17,8 +17,9 @@
         <div class="back_div">
             <form action="/challenge_loop/upload" method="POST" enctype="multipart/form-data" id="form1">
                 <% if (x == 0) { %>
-                    <label class="form_heading"><b>Choose Track Name:</b></label>
+                    <label class="form_heading" ><b>Choose Track Name:</b></label>
                     <p class="form_p">What would you like to call your Track?</p>
+                    <p class="form_p" style="color: red;"><%= message %></p>
                     <input class="upload" type="text" name="tName" id="tName" required>
                     <label class="form_heading"><b>Choose Number of Challenges:</b></label>
                     <p class="form_p">How many challenges will your track have?</p>
