@@ -109,7 +109,8 @@ function createTrack(name,creator,num_challenges) {
         name: name,
         creator: creator,
         number_of_challenges: num_challenges,
-        challenges: []
+        challenges: [], 
+        track_ranking: 0
     });
     console.log(track);
     return track;

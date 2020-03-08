@@ -15,7 +15,8 @@ const TrackSchema = new Schema({
         type: Number,
         required: [true,'number of challenges is required']
     },
-    challenges: [Challenges.challengeSchema]
+    challenges: [Challenges.challengeSchema], 
+    track_ranking: Number
 });
 
 module.exports = mongoose.model('Track',TrackSchema);
