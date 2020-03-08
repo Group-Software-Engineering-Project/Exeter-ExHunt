@@ -19,7 +19,7 @@ const bodyParser = require('body-parser');
 const User = require("./models/user");
 const app = express();
 
-// Mongoose configuration
+// Mongoose configurationrrs
 mongoose.connect("mongodb://localhost/exhunt");
 
 // view engine setup

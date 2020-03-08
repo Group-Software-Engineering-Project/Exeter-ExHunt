@@ -57,8 +57,8 @@
     }
 
     .back_div {
-        min-width:70%;
-        max-width: 70%;
+        min-width:50%;
+        max-width: 50%;
         display: inline-block;
         background-color: rgb(228, 228, 228);
         box-shadow: rgb(199, 199, 199) 1em 1em;
@@ -67,10 +67,24 @@
     }
 
     .bd_view {
-        padding-bottom: 40%;
+        padding-bottom: 1%;
+        padding-top: 1%;
     }
 
     .v_upload {
         margin-left: 40%;
     }
 
+    .tracklist {
+        background-color:#6495ed;
+        padding-top:1%;
+        padding-bottom:1%;
+        text-decoration: none;
+        width: 96%;
+        color: azure;
+        margin-bottom: 1%;
+        font-family:'Montserrat',sans-serif;
+        min-height: 1.5vh;
+        border-radius: 25px;
+        display: inline-block;
+    }

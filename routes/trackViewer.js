@@ -11,12 +11,11 @@ trackViewer.get('/', function(req, res, next) {
         res.redirect('/login')
     }
     else{
-        username = req.session.currentUser.username;
-        Tracks.find({creator:username},"creator name number_of_challenges",function(err,tracks){
-            displaytracks = tracks;
-            console.log(displaytracks);
+        const username = req.session.currentUser.username;
+        Tracks.find({creator:username},"creator name number_of_challenges track_ranking",function(err,tracks){
+            console.log(tracks);
+            res.render('creator/view_track', { title: 'Track Viewer', username: username, tracks: tracks});
         });
-        res.render('creator/view_track', { title: 'Track Viewer', username: username, tracks: displaytracks});
     }
 });
 
