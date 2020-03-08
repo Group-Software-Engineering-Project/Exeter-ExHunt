@@ -1,10 +1,3 @@
-<<<<<<< Updated upstream
-var express = require('express');
-var trackViewer = express.Router();
-
-trackViewer.get('/view_track', function(req, res, next) {
-    res.render('view_track', { title: 'Track Viewer' });
-=======
 const express = require('express');
 const trackViewer = express.Router();
 const passport = require('passport');
@@ -24,7 +17,6 @@ trackViewer.get('/', function(req, res, next) {
             res.render('creator/view_track', { title: 'Track Viewer', username: username, tracks: tracks});
         });
     }
->>>>>>> Stashed changes
 });
 
 module.exports = trackViewer;
