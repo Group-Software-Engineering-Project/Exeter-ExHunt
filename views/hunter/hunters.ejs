@@ -3,12 +3,13 @@
     <head>
         <title>View Created Tracks</title>
         <link rel="stylesheet" type="text/css" href="/stylesheets/hunter_styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
 
     <body style="text-align:center;background: url('/images/University_of_Exeter_hunters.jpg') no-repeat top fixed; background-size: cover;">
         <h1 class="title">Welcome Hunters</h1>
         <%  tracks.forEach(function(track){ %>
-            <div  class="track_div">
+            <div  class="track_div" id="<%=track.name %>">
                 <h2 class="track_title"><%=track.name %></h2>
                 <p class="track_info"><b>Track Creator - <%=track.creator %></b></p>
                 <p class="track_info"><b>Track Ranking - <%=track.track_ranking %></b></p>
@@ -30,4 +31,5 @@
             </div>
         <% }) %>
     </body>
+    <script src="/javascripts/hunter-click.js"></script>
 </html>
