@@ -8,6 +8,8 @@
     color: black;
     padding-top: 1%;
     font-family:'Montserrat',sans-serif;
+    padding-bottom: 2%;
+    border-radius: 10px;
 }
 
 .track_div {
@@ -33,3 +35,11 @@
     top: 0;
     left: 0;
   }
+
+.track_info {
+    width: 48%;
+    margin-left: 1%;
+    margin-right: 1%;
+    float: left;
+    color: black;
+}
