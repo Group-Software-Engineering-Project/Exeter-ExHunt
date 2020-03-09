@@ -1,0 +1,269 @@
+body {
+  background: #efefef;
+}
+
+.wrapper {
+position: relative;
+text-align: center;
+font-size: 16px;
+font-size: 1rem;
+}
+
+/* the @catalinred clearfix */
+.wrapper:after {
+content: "";
+display: table;
+clear: both;
+}
+
+/* this rule sets the size for all the icons inside the reveal container */
+.svgicon2 {
+position: relative;
+perspective: 300px;
+transform-style: preserve-3d;
+perspective-origin: 50% 50% 0%;
+float: left;
+top: .5em;
+margin-right: 1em;
+left: 2.5em;
+height: 2em;
+width: 2em;
+}
+
+.svgicon2 .twitsvg {
+position: absolute;
+transform-perspective: 50% 50% 0%;
+background: transparent;
+background-size: 3em 3em;
+-webkit-transform: rotateY(45deg);
+-ms-transform: rotateY(45deg);
+transform: rotateY(45deg);
+fill: #555;
+-webkit-transition: fill .3s ease-in;
+-webkit-transition: all .3s ease-in;
+-ms-transition: fill .3s ease-in;
+-ms-transition: all .3s ease-in;
+transition: fill .3s ease-in;
+transition: all .3s ease-in;
+}
+
+.twitsvg:hover {
+position: absolute;
+background: transparent;
+background-size: 3em 3em; 
+fill: #35AFEB;
+cursor: pointer;
+-ms-transform: rotateY(0deg);
+-webkit-transform: rotateY(0deg);
+transform: rotateY(0deg);
+}
+
+.svgicon .pint-all {
+position: absolute;
+transform-perspective: 50% 50% 0%;
+background: transparent;
+background-size: 3em 3em;
+-webkit-transform: rotateY(-45deg);
+-ms-transform: rotateY(-45deg);
+transform: rotateY(-45deg);
+-webkit-transition: all .3s ease-in;
+-ms-transition: all .3s ease-in;
+transition: all .3s ease-in;
+}
+
+.svgicon2 .pint-all {
+position: absolute;
+transform-perspective: 50% 50% 0%;
+background: transparent;
+background-size: 3em 3em;
+-webkit-transform: rotateY(-45deg);
+-ms-transform: rotateY(-45deg);
+transform: rotateY(-45deg);
+-webkit-transition: all .3s ease-in;
+-ms-transition: all .3s ease-in;
+transition: all .3s ease-in;
+}
+
+.pint-all:hover {
+-webkit-transform: rotateY(0deg);
+-ms-transform: rotateY(0deg);
+transform: rotateY(0deg);
+cursor: pointer;
+}
+
+.pint-all .pintsvg {
+position: absolute;
+transform-perspective: 50% 50% 0%;
+fill: #555;
+left: -1em;
+margin-top: -2em;
+background: transparent;
+background-size: 3em 3em;
+-webkit-transition: fill .3s ease-in;
+-ms-transition: fill .3s ease-in;
+transition: fill .3s ease-in;	
+}
+
+.pint-all:hover .pintsvg {
+fill: #CB2027;
+}
+
+.face-all {
+position: relative;
+}
+
+.face-all:hover {
+cursor: pointer;
+}
+
+.face-all .face1 {
+position: absolute;
+transform-perspective: 50% 50% 0%;
+fill: #555;
+-webkit-transform: rotateY(-45deg);
+-ms-transform: rotateY(-45deg);
+transform: rotateY(-45deg);
+-webkit-transition: all .3s ease-in;
+-ms-transition: all .3s ease-in;
+transition: all .3s ease-in;
+}
+
+.face-all:hover .face1 {
+fill: #30487A;
+-webkit-transform: rotateY(0deg);
+-ms-transform: rotateY(0deg);
+transform: rotateY(0deg);	
+cursor: pointer;
+}
+
+.face-all .face2 {
+position: absolute;
+transform-perspective: 50% 50% 0%;
+fill: #555;
+-webkit-transform: rotateY(-45deg);
+-ms-transform: rotateY(-45deg);
+transform: rotateY(-45deg);
+-webkit-transition: all .3s ease-in;
+-ms-transition: all .3s ease-in;
+transition: all .3s ease-in;
+}
+
+.face-all:hover .face2 {
+fill: #758EB4;
+-webkit-transform: rotateY(0deg);
+-ms-transform: rotateY(0deg);
+transform: rotateY(0deg);
+cursor: pointer;
+}
+
+.goog-all {
+position: relative;
+}
+
+.goog-all:hover {
+cursor: pointer;
+}
+
+.goog-all .goog {
+position: absolute;
+transform-perspective: 50% 50% 0%;
+fill: #555;
+-webkit-transform: rotateY(-45deg);
+-ms-transform: rotateY(-45deg);
+transform: rotateY(-45deg);
+-webkit-transition: all .3s ease-in;
+-ms-transition: all .3s ease-in;
+transition: all .3s ease-in;
+margin-left: 4em;
+}
+
+.goog-all:hover .goog {
+fill:#B84F46;
+-webkit-transform: rotateY(0deg);
+-ms-transform: rotateY(0deg);
+transform: rotateY(0deg);
+cursor: pointer;
+}
+
+/* this sets the font for "share" and hides it when the cover is open */
+.bar-cover > p {
+  position: relative;
+  top: -1em;
+padding-top: .4em;
+font-family: "TragicSans Medium", sans-serif;
+color: rgba(96, 132, 170, 0.7);
+font-size: 1.5em;
+text-shadow: 1px 1px 1px #fff, 0px -1px 1px #000;
+transition: color .3s ease, visibility .3s ease;
+}
+
+.share-bar:hover .bar-cover p,
+.bar-cover:hover p,
+.share-bar:focus .bar-cover p,
+.bar-cover:focus p {
+color: rgba(127, 93, 59, 0.3);
+text-shadow: none;
+visibility: hidden;
+}
+
+/***********************reveal container for icons, set at 3em height for 2em icons**************************************************/
+.share-bar {
+transform-style: preserve-3d;
+postion: relative;
+perspective: 500px;
+transition-perspective: 50% 50% 0%;
+margin-left: auto;
+margin-right: auto;
+margin-top: 4rem;
+height: 3em;
+width: 16em;
+border-radius: 2em;
+-webkit-background: repeating-linear-gradient(180deg, rgba(255, 255, 221, 0.3), rgba(155, 155, 138, 0.3) 10%),
+      repeating-linear-gradient(45deg, rgba(221, 255, 255, 0.1), rgba(138, 155, 155, 0.1) 5%);
+background: repeating-linear-gradient(180deg, rgba(255, 255, 221, 0.3), rgba(155, 155, 138, 0.3) 10%),
+      repeating-linear-gradient(45deg, rgba(221, 255, 255, 0.1), rgba(138, 155, 155, 0.1) 5%);
+box-shadow: inset 0 0 .5rem rgba(0,0,0,0.5);
+
+}
+
+/* reveal cover size is matched to the .share-bar. both can easily be changed to match smaller, or larger share icons: 1.5em icons, 2em height, 12em width for instance */
+.bar-cover {
+position: absolute;
+top: -.1em;
+-webkit-top: 5em;
+-webkit-transform-origin: 50% 100% 0px;
+transform-origin: 50% 100% 0px;
+-webkit-transform-perspective: 50% 50% 0%;
+transform-perspective: 50% 50% 0%;
+height: 3em;
+width: 16em;
+border-radius: 2em;
+background: rgba(255, 255, 241, 1);
+box-shadow: inset 0 0 5px rgba(186,136,87,0);
+border-top: 5px solid rgba(55, 55, 55,0);
+-webkit-transform: perspective(500px) rotateY(0deg) rotateX(0deg);
+transform: perspective(500px) rotateY(0deg) rotateX(0deg);
+-webkit-transition: all .5s ease-in;
+transition: transform .5s ease-in, box-shadow .3s ease-in, border .3s ease-in .2s, top .3s ease-in, background .3s ease-out .3s;
+
+}
+
+.share-bar:hover .bar-cover,
+.bar-cover:focus {
+position: absolute;
+top: -.2em;
+-webkit-top: 4.8em;
+backface-visibility: visible;
+-webkit-transform-perspective: 50% 50% 0%;
+transform-perspective: 50% 50% 0%;
+color: rgba(127, 93, 59, 0.3);
+background: rgba(5, 5, 5, 0.8);
+box-shadow: inset 0 0 5px rgba(76,76,76,0.5);
+border-top: 5px solid rgba(215, 215, 215,0.8);
+cursor: pointer;
+-webkit-transform-origin: 50% 100% 0px;
+transform-origin: 50% 100% 0px;
+-webkit-transform: perspective(500px) rotateY(0deg) rotateX(-135deg);
+transform: perspective(500px) rotateY(0deg) rotateX(-135deg);
+}
+
