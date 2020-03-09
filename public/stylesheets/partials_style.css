@@ -13,4 +13,18 @@
     margin-top: 2%;
 }
 
+.LButton{
+    text-align: left;
+    position: fixed;
+    top: 5%;
+    left: 5%
+}
+
+.RButton{
+    text-align: right;
+    position: fixed;
+    top: 5%;
+    right: 5%;
+}
+
 
