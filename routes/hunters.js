@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/choose_track',urlencodedParser, function(req,res){
   console.log(req.body);
-  res.redirect('track_loop');
+  res.redirect('/track_loop');
 });
 
 
