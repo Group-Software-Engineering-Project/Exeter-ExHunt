@@ -7,11 +7,11 @@ var tracksTable;
 var usersTable;
 
 leaderboardsViewer.get('/', function(req, res, next) {
-    Tracks.find({},"creator name number_of_challenges track_ranking",function(err,tracks){
+    Tracks.find({},"creator name track_ranking",function(err,tracks){
         console.log(tracks);
         tracksTable = tracks;
     })
-    User.find({},"username track_hunter_ranking",function(err,users){
+    User.find({role:"Hunter"},"username track_hunter_ranking",function(err,users){
         console.log(users);
         usersTable = users;
     })

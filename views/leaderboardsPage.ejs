@@ -8,14 +8,14 @@
         <h1 class="title" style="font-size: 3vw;">View Leaderboards</h1>
         <div class="back_div bd_view">
             <% tracksTable.forEach(function(track) { %>
-            <!--The Object is called tracksTable and the attributes you can call by: .name, .creator, .track_ranking-->
+            
             <div class="tracklist">
-                <p>Name: <%= track.name %> Number of challenges: <%= track.number_of_challenges %></p>
+                <p>Track Name: <%= track.name %> Creator: <%= track.creator %> Track Ranking: <%= track.track_ranking %></p>
             </div>
         <% }) %>
         <br>
             <% usersTable.forEach(function(user) { %>
-            <!--The Object is called usersTable and the attributes you can call by: .username, .role, .track_hunter_ranking-->
+            
             <div class="userslist">
                 <p>Name: <%= user.username %> hunterRanking: <%= user.track_hunter_ranking %></p>
             </div>
