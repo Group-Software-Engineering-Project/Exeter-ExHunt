@@ -13,18 +13,24 @@
     margin-top: 2%;
 }
 
-.LButton{
-    text-align: left;
-    position: fixed;
-    top: 0%;
-    left: 2%;
-}
-
-.RButton{
+.resourcesPageButton{
     text-align: right;
     position: fixed;
     top: 0%;
     right: 2%;
 }
 
+.leaderboardButton{
+    text-align: left;
+    position: fixed;
+    top: 0%;
+    left: 2%;
+}
 
+.RButtonText{
+    font-size: smaller;
+}
+
+.LButtonText{
+    font-size: smaller;
+}
