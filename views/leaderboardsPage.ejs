@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+    <head>   
         <title>View Leaderboards</title>
         <link rel="stylesheet" type="text/css" href="/stylesheets/leaderboard_style.css">
         <link rel="stylesheet" href="stylesheets/dots_background.css"/>
         <script type="text/javascript" src="/javascripts/dots_background.js"></script>
     </head>
 
-    <body>
-        <h1 class="title" style="font-size: 3vw;">View Leaderboards</h1>
+    <body style="text-align:center;background: url('images/BackgroundUsers2.jpg') no-repeat top fixed; background-size: cover;"></body>
+        <h1 class="title">View Leaderboards</h1>
         <div class="leaderboardStyling">
-            <table>
+            <table class="creatortable">
                 <tr>
-                    <th>Rank</th><th>Track Name</th><th>Track Creator</th><th>Track Rating</th>
+                    <th>Rank</th><th>Name</th><th>Track Creator</th><th>Rating</th>
                 </tr>
                 <% var i = 0 %>
                 <% tracks.forEach(function(track) { i++;%>
@@ -25,7 +25,7 @@
             <% }) %>
         </table>
         <br>
-            <table>
+            <table class="huntertable">
                 <tr>
                     <th>Rank</th><th>Hunter</th><th>Number of Tracks Completed</th>
                 </tr>
