@@ -15,7 +15,6 @@ router.get('/', function(req, res, next) {
 router.post('/choose_track',urlencodedParser, function(req,res){
   console.log(req.body.track_name);
   Tracks.find({name:req.body.track_name},function(err,track){
-    console.log(track[0].challenges[0]);
     req.session.hunter_track = track[0];
   });
   res.redirect('/track_loop');
