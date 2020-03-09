@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
   }
   else {
     res.render('creator/start', { title: 'Express', username: req.session.currentUser.username});
-});
+}});
 
 
 module.exports = router;
