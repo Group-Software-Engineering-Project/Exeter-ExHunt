@@ -67,7 +67,7 @@
     }
 
     .bd_view {
-        padding-bottom: 40%;
+        padding-bottom: 1%;
         padding-top: 1%;
     }
 
@@ -79,12 +79,12 @@
         background-color:#6495ed;
         padding-top:1%;
         padding-bottom:1%;
-        cursor: pointer;
         text-decoration: none;
-        width: 95%;
+        width: 96%;
         color: azure;
         margin-bottom: 1%;
-        font-family: arial;
+        font-family:'Montserrat',sans-serif;
+        cursor: pointer;
         min-height: 1.5vh;
         border-radius: 25px;
         display: inline-block;
