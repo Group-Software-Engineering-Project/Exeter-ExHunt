@@ -2,24 +2,42 @@
 <html lang="en">
     <head>
         <title>View Leaderboards</title>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/leaderboard_style.css">
+        <% include ./partials/header.ejs  %>
     </head>
 
-    <body style="text-align:center;background: url('/images/exerterbanner.jpg') no-repeat top fixed; background-size: cover;">
+    <body>
         <h1 class="title" style="font-size: 3vw;">View Leaderboards</h1>
-        <div class="back_div bd_view">
-            <% tracksTable.forEach(function(track) { %>
-            
-            <div class="tracklist">
-                <p>Track Name: <%= track.name %> Creator: <%= track.creator %> Track Ranking: <%= track.track_ranking %></p>
-            </div>
-        <% }) %>
+        <div class="leaderboardStyling">
+            <table>
+                <tr>
+                    <th>Rank</th><th>Track Name</th><th>Track Creator</th><th>Track Rating</th>
+                </tr>
+                <% var i = 0 %>
+                <% tracks.forEach(function(track) { i++;%>
+                <tr>
+                    <td><%= i %></td>
+                    <td><%= track.name %></td>
+                    <td><%= track.creator %></td> 
+                    <td><%= track.track_ranking %></td>
+                </tr>
+            <% }) %>
+        </table>
         <br>
-            <% usersTable.forEach(function(user) { %>
-            
-            <div class="userslist">
-                <p>Name: <%= user.username %> hunterRanking: <%= user.track_hunter_ranking %></p>
-            </div>
-        <% }) %>
-        </div>
+            <table>
+                <tr>
+                    <th>Rank</th><th>Hunter</th><th>Number of Tracks Completed</th>
+                </tr>
+                <% var j = 0 %>
+                <% users.forEach(function(user) { j++;%>
+                <tr>
+                    <td><%= j %></td>
+                    <td><%= user.username %></td>
+                    <td><%= user.track_hunter_ranking %></td>
+                </tr>
+            <% }) %>
+        </table>
     </body>
+    <canvas style="z-index: -1"id="canvas1"></canvas>
+    <% include ./partials/footer.ejs %>
 </html>
