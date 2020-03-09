@@ -58,12 +58,8 @@ trackCreator.post('/upload',upload.any(),function(req,res){
     if (x ==0) {
         number_of_challenges = req.body.num_challenges;
         var tName = req.body.tName;
-        console.log(number_of_challenges);
-        console.log(tName);
-        console.log(req.files);
         Tracks.findOne( {name:tName} , "name", (err, Name) => {
             if (Name !== null) {
-                console.log(Name);
                 res.render('creator/challenge_loop.ejs', {title: 'challenge_loop',heading:"Intro",x:x,num_challenges:number_of_challenges, username: username,message:"*Name already taken"});
               return;
             }
@@ -76,15 +72,11 @@ trackCreator.post('/upload',upload.any(),function(req,res){
         });
     }
     else if (x==number_of_challenges-1) {
-        console.log([req.body.x,req.body.y]);
-        console.log(req.files);
         track = createChallenge(track,track._id,req.files[0].id,req.files[1].id,[req.body.x,req.body.y]);
         x++;
         res.render('creator/challenge_loop.ejs', {title: 'challenge_loop',heading:'Last Location',x:x,num_challenges:number_of_challenges, username: username,message:""});
     }
     else if (x==number_of_challenges) {
-        console.log([req.body.x,req.body.y]);
-        console.log(req.files);
         track = createChallenge(track,track._id,req.files[0].id,req.files[1].id,[req.body.x,req.body.y]);
         track.save();
         if (req.session.currentUser == undefined || req.session.currentUser.role == 'Hunter') {
@@ -95,8 +87,6 @@ trackCreator.post('/upload',upload.any(),function(req,res){
           }
     }
     else {
-        console.log([req.body.x,req.body.y]);
-        console.log(req.files);
         track = createChallenge(track,track._id,req.files[0].id,req.files[1].id,[req.body.x,req.body.y]);
         x++;
         res.render('creator/challenge_loop.ejs', {title: 'challenge_loop',heading:`Location ${x}`,x:x,num_challenges:number_of_challenges, username: username,message:""});
@@ -112,7 +102,6 @@ function createTrack(name,creator,num_challenges) {
         challenges: [], 
         track_ranking: 0
     });
-    console.log(track);
     return track;
 };
 
@@ -124,7 +113,6 @@ function createChallenge(Track,TrackID, Vid1, Vid2,locations) {
         Vid2ID: Vid2
     });
     Track.challenges.push(challenge)
-    console.log(challenge);
     return Track;
 }
 

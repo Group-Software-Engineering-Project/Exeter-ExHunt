@@ -8,7 +8,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <script>
             $('remove').on('click', function() {
-               console.log('kjflads;kjf;laksdjf;lkajsdf;lkajsed');
             });
          </script>
     </head>
@@ -19,9 +18,9 @@
             <% tracks.forEach(function(track) { %>
             <div class="tracklist">
                 <p><h4>Track Name: <%= track.name %></h4> Creator: <%= track.creator %><br> Number of challenges: <%= track.number_of_challenges %><br> Ranking: <%= track.track_ranking %> </p>
-                <button class="btn btn-danger btn-lg remove">
-                    <span class="glyphicon glyphicon-trash"></span> Remove</button>
-                    <div><button id="delete"> Delete first Darth Vader quote </button></div>
+                <form action="/view_track/<%= track._id %>/delete" method="POST">
+                    <button class="btn btn-danger" type="submit">Delete Product</button>
+                </form>
             </div>
         <% }) %>
         </div>
@@ -31,7 +30,6 @@
     </body>
     <script>
         $('remove').on('click', function() {
-           console.log('jfslkadjfl;aksdjflkjasdfkl;a');
         });
      </script>
     <% include ../partials/logoutbar.ejs %>

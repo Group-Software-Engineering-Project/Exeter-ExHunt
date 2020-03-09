@@ -133,7 +133,6 @@ window.onload = function () {
 
 window.onresize = function () {
     'use strict';
-    console.log("resize");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     //buildArray();

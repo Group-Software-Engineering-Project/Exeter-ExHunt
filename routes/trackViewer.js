@@ -7,7 +7,7 @@ var username;
 var displaytracks;
 
 trackViewer.get('/', function(req, res, next) {
-    if (req.session.currentUser == undefined || req.session.currentUser.role == 'Hunter') {
+    if (req.session.currentUser == undefined) {
         res.redirect('/login')
     }
     else{
@@ -18,5 +18,14 @@ trackViewer.get('/', function(req, res, next) {
         });
     }
 });
+
+trackViewer.post('/:id/delete', (req, res, next) => {
+    const id = req.params.id;
+    console.log(id);
+    Tracks.findByIdAndDelete(id, (err, track) => {
+        if (err) { return next(err); }
+        return res.redirect('/view_track');
+      });
+  });
 
 module.exports = trackViewer;
