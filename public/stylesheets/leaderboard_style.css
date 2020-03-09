@@ -1,7 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
 
+
+
 .creatortable, .huntertable{
-    margin: 0px auto;
+    display: inline-block;
     table-layout: fixed;
 }
 
@@ -10,11 +12,11 @@ thead, tbody{display:block;}
 tbody{
     overflow-x:hidden;
     overflow-y:auto;
-    height: 800px;
+    height: 400px;
 }
 
 .title{
-  font-size: 7vw;
+  font-size: 3.5vw;
   color:black;
 }
 body {
@@ -28,7 +30,6 @@ body {
 div.table-title {
   display: block;
   margin: auto;
-  max-width: 600px;
   padding:5px;
   width: 100%;
 }
@@ -138,3 +139,4 @@ td.text-center {
 td.text-right {
   text-align: right;
 }
+
