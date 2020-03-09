@@ -84,6 +84,7 @@
         color: azure;
         margin-bottom: 1%;
         font-family:'Montserrat',sans-serif;
+        cursor: pointer;
         min-height: 1.5vh;
         border-radius: 25px;
         display: inline-block;

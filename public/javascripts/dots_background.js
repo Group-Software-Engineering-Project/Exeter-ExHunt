@@ -138,3 +138,6 @@ window.onresize = function () {
     //buildArray();
     animate();
 };
+
+start = new App(); 
+start();

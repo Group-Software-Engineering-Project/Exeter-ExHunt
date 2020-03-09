@@ -58,8 +58,12 @@ trackCreator.post('/upload',upload.any(),function(req,res){
     if (x ==0) {
         number_of_challenges = req.body.num_challenges;
         var tName = req.body.tName;
+        console.log(number_of_challenges);
+        console.log(tName);
+        console.log(req.files);
         Tracks.findOne( {name:tName} , "name", (err, Name) => {
             if (Name !== null) {
+                console.log(Name);
                 res.render('creator/challenge_loop.ejs', {title: 'challenge_loop',heading:"Intro",x:x,num_challenges:number_of_challenges, username: username,message:"*Name already taken"});
               return;
             }
@@ -113,6 +117,7 @@ function createChallenge(Track,TrackID, Vid1, Vid2,locations) {
         Vid2ID: Vid2
     });
     Track.challenges.push(challenge)
+
     return Track;
 }
 

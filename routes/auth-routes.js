@@ -93,7 +93,7 @@ authRoutes.post("/signup", urlencodedParser, (req, res, next) => {
       } else {
         req.session.currentUser = newUser;
         if (newUser.role == "Hunter") {
-          res.redirect("/hunter");
+          res.redirect("/hunters");
         } else {
           res.redirect("/creator");
         }

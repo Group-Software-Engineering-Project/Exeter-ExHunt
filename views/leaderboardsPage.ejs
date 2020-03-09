@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>View Leaderboards</title>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/leaderboard_style.css">
+        <link rel="stylesheet" href="stylesheets/dots_background.css"/>
+        <script type="text/javascript" src="/javascripts/dots_background.js"></script>
+    </head>
+
+    <body>
+        <h1 class="title" style="font-size: 3vw;">View Leaderboards</h1>
+        <div class="leaderboardStyling">
+            <table>
+                <tr>
+                    <th>Rank</th><th>Track Name</th><th>Track Creator</th><th>Track Rating</th>
+                </tr>
+                <% var i = 0 %>
+                <% tracks.forEach(function(track) { i++;%>
+                <tr>
+                    <td><%= i %></td>
+                    <td><%= track.name %></td>
+                    <td><%= track.creator %></td> 
+                    <td><%= track.track_ranking %></td>
+                </tr>
+            <% }) %>
+        </table>
+        <br>
+            <table>
+                <tr>
+                    <th>Rank</th><th>Hunter</th><th>Number of Tracks Completed</th>
+                </tr>
+                <% var j = 0 %>
+                <% users.forEach(function(user) { j++;%>
+                <tr>
+                    <td><%= j %></td>
+                    <td><%= user.username %></td>
+                    <td><%= user.track_hunter_ranking %></td>
+                </tr>
+            <% }) %>
+        </table>
+    </body>
+    <canvas style="z-index: -1"id="canvas1"></canvas>
+    
+</html>

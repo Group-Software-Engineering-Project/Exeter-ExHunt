@@ -1,0 +1,34 @@
+.leaderboardStyling{
+    text-align: center;
+}
+
+
+.tr, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+    margin: auto;
+    width: 0%;
+    text-align: center;
+    border-radius: 4px;
+    color: #000000;
+}
+
+.tr,td{
+    background-color:#6495ed;
+}
+
+.tr,th{
+    background-color:#496697;
+}
+
+table{
+    margin-top: 1%;
+    background-color: #000000;
+    border-radius: 6.5px;
+    display: inline-block;
+}
+
+h1, h3{
+  text-align: center;
+}

@@ -1,0 +1,16 @@
+.logoutbar{
+    padding: 5px;
+}
+
+
+.footerArea{
+    background-color: rgb(228, 228, 228);
+    max-width: fit-content;
+    margin: 0 auto;
+    padding: 0.3%;
+    font-family:'Montserrat',sans-serif;
+    border-radius: 5px;
+    margin-top: 2%;
+}
+
+
