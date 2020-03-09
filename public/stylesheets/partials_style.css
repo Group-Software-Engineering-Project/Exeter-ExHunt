@@ -16,15 +16,15 @@
 .LButton{
     text-align: left;
     position: fixed;
-    top: 5%;
-    left: 5%
+    top: 0%;
+    left: 2%;
 }
 
 .RButton{
     text-align: right;
     position: fixed;
-    top: 5%;
-    right: 5%;
+    top: 0%;
+    right: 2%;
 }
 
 
