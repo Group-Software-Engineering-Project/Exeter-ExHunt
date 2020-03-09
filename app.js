@@ -8,6 +8,7 @@ const creatorRoutes = require("./routes/trackLanding");
 const challengeLoopRoutes = require('./routes/trackCreatorloop');
 const trackViewerRoutes = require('./routes/trackViewer');
 const leaderboardRoutes = require('./routes/leaderboards');
+const feedback = require('./routes/feedback')
 const createError = require('http-errors');
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
@@ -83,6 +84,7 @@ app.use('/creator', creatorRoutes);
 app.use('/challenge_loop',challengeLoopRoutes);
 app.use('/view_track',trackViewerRoutes);
 app.use('/leaderboardsPage', leaderboardRoutes);
+app.use('/feedback', feedback);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

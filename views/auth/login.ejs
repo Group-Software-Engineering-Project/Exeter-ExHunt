@@ -3,9 +3,12 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.6/prefixfree.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js"></script>
+
 
 <% if (typeof(errorMessage) !== "undefined") { %>
   <div class="error-message"><%= errorMessage %></div>
@@ -21,7 +24,7 @@
     <input type="password" name="password" placeholder="Enter your password">
     <label for="password">password</label>
     <br>
-    <button>Sign in</button>
+    <button class="btn btn-primary">Sign in</button>
     <% if (typeof(errorMessage) !== "undefined") { %>
       <div class="error-message"><%= errorMessage %></div>
     <% } %>
