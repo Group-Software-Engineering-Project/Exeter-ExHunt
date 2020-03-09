@@ -121,7 +121,7 @@ function createChallenge(Track,TrackID, Vid1, Vid2,locations) {
         TrackID: TrackID,
         Location: [locations[0],locations[1]],
         Vid1ID: Vid1,
-        Vid2ID: Vid2
+        Vid2ID: Vid2,
     });
     Track.challenges.push(challenge)
     console.log(challenge);

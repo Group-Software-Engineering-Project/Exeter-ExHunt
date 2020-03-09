@@ -7,6 +7,7 @@ const hunterRoutes = require("./routes/hunters");
 const creatorRoutes = require("./routes/trackLanding");
 const challengeLoopRoutes = require('./routes/trackCreatorloop');
 const trackViewerRoutes = require('./routes/trackViewer');
+const hunterTrackLooper = require('./routes/hunterLoop');
 const leaderboardRoutes = require('./routes/leaderboards');
 const feedback = require('./routes/feedback')
 const createError = require('http-errors');
@@ -83,6 +84,7 @@ app.use('/hunters', hunterRoutes);
 app.use('/creator', creatorRoutes);
 app.use('/challenge_loop',challengeLoopRoutes);
 app.use('/view_track',trackViewerRoutes);
+app.use('/track_loop',hunterTrackLooper)
 app.use('/leaderboardsPage', leaderboardRoutes);
 app.use('/feedback', feedback);
 
