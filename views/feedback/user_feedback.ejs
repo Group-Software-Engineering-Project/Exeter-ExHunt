@@ -9,11 +9,9 @@
   <div class="form-group">
     <select id="product-select" class="form-control custom-select">
         <option value="0" disabled selected>Select Product</option>
-        <option value="sony">Sony 4K TV</option>
-        <option value="samsung">Samsung 4K TV</option>
-        <option value="vizio">Vizio 4K TV</option>
-        <option value="panasonic">Panasonic 4K TV</option>
-        <option value="phillips">Phillips 4K TV</option>
+        <% tracks.forEach(function(track) { %>
+          <option value="<%= track %>">Sony 4K TV</option>
+        <% }) %>
       </select>
   </div>
   <div class="form-group">
