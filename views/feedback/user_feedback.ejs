@@ -6,17 +6,21 @@
 
 <div class="container mt-5">
   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <div class="form-group">
-    <select id="product-select" class="form-control custom-select">
-        <option value="0" disabled selected>Select Product</option>
-        <% tracks.forEach(function(track) { %>
-          <option value="<%= track %>">Sony 4K TV</option>
-        <% }) %>
-      </select>
-  </div>
-  <div class="form-group">
-    <input type="number" id="rating-control" class="form-control" step="0.1" max="5" placeholder="Rate 1 - 5">
-  </div>
+  <form action="/challenge_loop/upload" method="POST" enctype="multipart/form-data" id="form1">
+    <div class="form-group">
+      <select id="product-select" class="form-control custom-select">
+          <option value="0" disabled selected>Select Product</option>
+          <% tracks.forEach(function(track) { %>
+            <option><%= track.name %></option>
+          <% }) %>
+        </select>
+    </div>
+    <div class="form-group">
+      <input type="number" id="rating-control" class="form-control" step="0.1" max="5" placeholder="Rate 1 - 5">
+      <br>
+      <input type="submit" id="submit">
+    </div>
+  </form>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -25,51 +29,17 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="sony">
-        <td>Sony 4K TV</td>
-        <td>
-          <div class="stars-outer">
-            <div class="stars-inner"></div>
-          </div>
-          <span class="number-rating"></span>
-        </td>
+      <% tracks.forEach(function(track) {%>
+        <tr class="sony">
+          <td><%= track.name %></td>
+          <td>
+            <div class="stars-outer">
+              <div class="stars-inner"></div>
+            </div>
+            <span class="number-rating"></span>
+          </td>
       </tr>
-      <tr class="samsung">
-        <td>Samsung 4K TV</td>
-        <td>
-          <div class="stars-outer">
-            <div class="stars-inner"></div>
-          </div>
-          <span class="number-rating"></span>
-        </td>
-      </tr>
-      <tr class="vizio">
-        <td>Vizio 4K TV</td>
-        <td>
-          <div class="stars-outer">
-            <div class="stars-inner"></div>
-          </div>
-          <span class="number-rating"></span>
-        </td>
-      </tr>
-      <tr class="panasonic">
-        <td>Panasonic 4K TV</td>
-        <td>
-          <div class="stars-outer">
-            <div class="stars-inner"></div>
-          </div>
-          <span class="number-rating"></span>
-        </td>
-      </tr>
-      <tr class="phillips">
-        <td>Phillips 4K TV</td>
-        <td>
-          <div class="stars-outer">
-            <div class="stars-inner"></div>
-          </div>
-          <span class="number-rating"></span>
-        </td>
-      </tr>
+      <% }) %>
     </tbody>
   </table>
 </div>

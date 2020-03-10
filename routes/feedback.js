@@ -11,7 +11,7 @@ const cookieSession = require('cookie-session');
 router.get('/', function(req, res, next) {
   Tracks.find({},"name track_ranking",function(err,tracks){
     res.render('feedback/user_feedback', { title: 'Feedback', tracks: tracks});
-  })
+  }).sort([['track_ranking', -1]]);
 });
 
 module.exports = router;
