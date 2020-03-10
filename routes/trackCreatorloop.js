@@ -104,7 +104,8 @@ function createTrack(name,creator,num_challenges) {
         creator: creator,
         number_of_challenges: num_challenges,
         challenges: [], 
-        track_ranking: 0
+        track_ranking: 0,
+        number_of_plays: 0
     });
     return track;
 };
