@@ -9,12 +9,12 @@ router.get('/', function(req, res, next) {
   Tracks.find({},"creator name number_of_challenges track_ranking",function(err,tracks){
     console.log(tracks);
     res.render('hunter/hunters', {challenges:2,tracks:tracks});
-  });
+  }).sort([['track_ranking', -1]]);
 });
 
 router.post('/choose_track',urlencodedParser, function(req,res){
-  Tracks.find({name:req.body.track_name},function(err,track){
-    req.session.hunter_track = track[0];
+  Tracks.findOne({name:req.body.track_name},function(err,track){
+    req.session.hunter_track = track;
     res.redirect('/track_loop');
   });
 

@@ -18,56 +18,33 @@ conn.once('open', () => {
     gfs.collection('uploads');
 });
 
+//
 
 router.get('/',function(req,res){
-    x=0;
-    //console.log(req.session)
     currentTrack = req.session.hunter_track;
-    //console.log(typeof currentTrack.challenges[x].Vid1ID);
-    gfs.files.findOne({_id:mongoose.Types.ObjectId(currentTrack.challenges[x].Vid1ID)},(err, file) => {
+    gfs.files.find({_id: { $in : [mongoose.Types.ObjectId(currentTrack.challenges[x].Vid1ID),mongoose.Types.ObjectId(currentTrack.challenges[x].Vid2ID)]}}).toArray((err,file)=>{
         // Check if files
         if (!file || file.length === 0) {
-            console.log("FUCK");
-            res.render('hunter/hunter_loop');
+          res.render('hunter/hunter_loop',{})
         }
         else {
-            console.log(file);
-            if (file.contentType == 'image/jpeg' || file.contentType === 'image/png') {
-                res.render('hunter/hunter_loop',{file:file,isImage:true});
+            if (x==currentTrack.number_of_challenges) {
+
+              res.render('hunter/hunter_loop',{files:file,end:true});
             }
             else {
-                res.render('hunter/hunter_loop',{file:file,isImage:false});
+              x++;
+              console.log(x);
+              res.render('hunter/hunter_loop',{files:file,end:false});
             }
+            
             
         }
       });
+
 });
 
-router.get('/image/:filename', (req, res) => {
-    console.log("image");
-    gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
-      // Check if the input is a valid image or not
-      if (!file || file.length === 0) {
-        return res.status(404).json({
-          err: 'No file exists'
-        });
-      }
-  
-      // If the file exists then check whether it is an image
-      if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
-        // Read output to browser
-        const readstream = gfs.createReadStream(file.filename);
-        readstream.pipe(res);
-      } else {
-        res.status(404).json({
-          err: 'Not an image'
-        });
-      }
-    });
-  });
-
 router.get('/video/:filename', (req, res) => {
-    console.log("vid");
     gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
       // Check if file
       if (!file || file.length === 0) {
@@ -76,9 +53,13 @@ router.get('/video/:filename', (req, res) => {
         });
       }
       // If File exists this will get executed
+      console.log("plese work");
       const readstream = gfs.createReadStream(file.filename);
       return readstream.pipe(res);
     });
   });
+
+
+
 
 module.exports = router;
