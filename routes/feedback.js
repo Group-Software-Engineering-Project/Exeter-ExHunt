@@ -7,7 +7,8 @@ const ensureLogin = require("connect-ensure-login");
 const mongoose = require('mongoose');
 // Track model
 const Tracks = require('../models/tracks');
-const cookieSession = require('cookie-session'); 
+const cookieSession = require('cookie-session');
+var num; 
 
 feedback_router.get('/', function(req, res, next) {
   Tracks.find({},"name track_ranking",function(err,tracks){
@@ -17,16 +18,25 @@ feedback_router.get('/', function(req, res, next) {
 
 
 feedback_router.post('/update',urlencodedParser,(req,res)=>{
-  
-  var query = {'name': req.body.select};
-  Tracks.updateOne(query,{track_ranking:req.body.rate, number_of_plays:+1}).then(result => {
+  Tracks.findOne({name: req.body.select}, (err, file) => {
+    num = file.number_of_plays + 1;
+    
+    var oldAvg = file.track_ranking;
+    var newRating = parseInt(req.body.rate); 
+    var avgRating = (oldAvg*(num-1) + newRating)/num;
+    var query = {'name': req.body.select};
+
+    Tracks.updateOne(query,{track_ranking:avgRating,number_of_plays:num}).then(result => {
+      console.log(result.ok);
       if(result.ok != 1) {
-        res.redirect('/login');
+        res.redirect('/feedback');
       } else {
+        res.redirect('/hunters');
         alert("Congrats, your rating has been added to the database!");
       }
   });
-  res.redirect('/login');
+  });
+  //res.redirect('/feedback');
 });
 
 
