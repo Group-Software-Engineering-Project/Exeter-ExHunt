@@ -68,7 +68,7 @@ trackCreator.post('/upload',upload.any(),function(req,res){
               return;
             }
             else {
-                track = createTrack(tName, username,number_of_challenges,track_ranking,number_of_plays);
+                track = createTrack(tName, username,number_of_challenges);
                 track = createChallenge(track,track._id,req.files[0].id,req.files[1].id,[0,0]);
                 x++;
                 res.render('creator/challenge_loop.ejs', {title: 'challenge_loop',heading:`Location ${x}`,x:x,num_challenges:number_of_challenges, username: username,message:""});
