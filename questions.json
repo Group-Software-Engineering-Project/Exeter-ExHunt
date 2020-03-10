@@ -1,0 +1,545 @@
+{
+  "questions":
+  [
+      {
+          "question":"How do you output ' Hello World ! ' in Python ?",
+          "answer":"print (´ Hello World ! ª)",
+          "choices":[
+              {
+                  "choice1":"print (´ Hello World ! ª)"
+              },
+              {
+                  "choice2":"print ´ Hello World ! ª"
+              },
+              {
+                  "choice3":"print ( Hello World ! )"
+              },
+              {
+                  "choice4":"(print (Hello World !) )"
+              }
+          ]
+      },
+      {
+          "question":"How do you assign the number 5 to a variable X in Python ?",
+          "answer":"X = 5",
+          "choices":[
+              {
+                  "choice1":"X = 5"
+              },
+              {
+                  "choice2":"X != 5"
+              },
+              {
+                  "choice3":"X == 5"
+              },
+              {
+                  "choice4":"X <- 5"
+              }
+          ]
+      },
+      {
+          "question":"How do you initialise a ' For loop ' ?",
+          "answer":"for x > y",
+          "choices":[
+              {
+                  "choice1":"for x > y"
+              },
+              {
+                  "choice2":"for each x in y"
+              },
+              {
+                  "choice3":"for x in y"
+              },
+              {
+                  "choice4":"for (x > y)"
+              }
+          ]
+      },
+      {
+          "question":"Which is not a legal variable name ?",
+          "answer":"_myvar",
+          "choices":[
+              {
+                  "choice1":"_myvar"
+              },
+              {
+                  "choice2":"my_var"
+              },
+              {
+                  "choice3":"Myvar"
+              },
+              {
+                  "choice4":"My-var"
+              }
+          ]
+      },
+      {
+          "question":"How do you remove a white space ?",
+          "answer":"strip()",
+          "choices":[
+              {
+                  "choice1":"strip()"
+              },
+              {
+                  "choice2":"trim()"
+              },
+              {
+                  "choice3":"len()"
+              },
+              {
+                  "choice4":"rem()"
+              }
+          ]
+      },
+      {
+          "question":"What does HTML stand for ?",
+          "answer":"Hyper Text Markup Language",
+          "choices":[
+              {
+                  "choice1":"Hyper Text Markup Language"
+              },
+              {
+                  "choice2":"Hyperlink and Text Markup Language"
+              },
+              {
+                  "choice3":"Home Tool Markup Language"
+              },
+              {
+                  "choice4":"Hyper Text Marking Language"
+              }
+          ]
+      },
+      {
+          "question":"Choose the correct HTML element to define important text ?",
+          "answer":"<b>",
+          "choices":[
+              {
+                  "choice1":"<b>"
+              },
+              {
+                  "choice2":"<i>"
+              },
+              {
+                  "choice3":"<important>"
+              },
+              {
+                  "choice4":"<bold>"
+              }
+          ]
+      },
+      {
+          "question":"Choose the correct HTML element to define italic text ?",
+          "answer":"<i>",
+          "choices":[
+              {
+                  "choice1":"<i>"
+              },
+              {
+                  "choice2":"<italic>"
+              },
+              {
+                  "choice3":"<ita>"
+              },
+              {
+                  "choice4":"<_i_>"
+              }
+          ]
+      },
+      {
+          "question":"Which HTML element defines the title of a document ?",
+          "answer":"<head>",
+          "choices":[
+              {
+                  "choice1":"<head>"
+              },
+              {
+                  "choice2":"<title>"
+              },
+              {
+                  "choice3":"<meta>"
+              },
+              {
+                  "choice4":"<header>"
+              }
+          ]
+      },
+      {
+          "question":"With what tool can you style a HTML file ?",
+          "answer":"CSS",
+          "choices":[
+              {
+                  "choice1":"CSS"
+              },
+              {
+                  "choice2":"Python"
+              },
+              {
+                  "choice3":"Java"
+              },
+              {
+                  "choice4":"C++"
+              }
+          ]
+      },
+      {
+          "question":"What does CSS stand for ?",
+          "answer":"Cascading Style Sheet",
+          "choices":[
+              {
+                  "choice1":"Cascading Style Sheet"
+              },
+              {
+                  "choice2":"Colorful Style Sheet"
+              },
+              {
+                  "choice3":"Creative Style Sheet"
+              },
+              {
+                  "choice4":"Computing Style Sheet"
+              }
+          ]
+      },
+      {
+          "question":"Where in an HTML document is the correct place to refer to an external style sheet ?",
+          "answer":"In the <head> section",
+          "choices":[
+              {
+                  "choice1":"In the <head> section"
+              },
+              {
+                  "choice2":"In the <body> section"
+              },
+              {
+                  "choice3":"At the end of the document"
+              },
+              {
+                  "choice4":"You canít refer to an external style sheet, only internal"
+              }
+          ]
+      },
+      {
+          "question":"Which HTML tag is used to define an internal style sheet ?",
+          "answer":"<style>",
+          "choices":[
+              {
+                  "choice1":"<style>"
+              },
+              {
+                  "choice2":"<css>"
+              },
+              {
+                  "choice3":"<script>"
+              },
+              {
+                  "choice4":"<internal style sheet>"
+              }
+          ]
+      },
+      {
+          "question":"Which property is used to change the background color ?",
+          "answer":"background-color",
+          "choices":[
+              {
+                  "choice1":"background-color"
+              },
+              {
+                  "choice2":"background-colour"
+              },
+              {
+                  "choice3":"bgcolor"
+              },
+              {
+                  "choice4":"bg-color"
+              }
+          ]
+      },
+      {
+          "question":"Which CSS property controls the text size?",
+          "answer":"font-size",
+          "choices":[
+              {
+                  "choice1":"font-size"
+              },
+              {
+                  "choice2":"text-size"
+              },
+              {
+                  "choice3":"font-style"
+              },
+              {
+                  "choice4":"text-style"
+              }
+          ]
+      },
+      {
+          "question":"Inside which HTML element do we put the JavaScript ?",
+          "answer":"<script>",
+          "choices":[
+              {
+                  "choice1":"<script>"
+              },
+              {
+                  "choice2":"<scripting>"
+              },
+              {
+                  "choice3":"<js>"
+              },
+              {
+                  "choice4":"<javascript>"
+              }
+          ]
+      },
+      {
+          "question":"How do you write 'Hello World' in an alert box ?",
+          "answer":"alert(´ Hello World ª) ;",
+          "choices":[
+              {
+                  "choice1":"alert(´ Hello World ª) ;"
+              },
+              {
+                  "choice2":"msgBox(´ Hello World ª) ;"
+              },
+              {
+                  "choice3":"alertBox(´ Hello World ª) ;"
+              },
+              {
+                  "choice4":"msg(´ Hello World ª) ;"
+              }
+          ]
+      },
+      {
+          "question":"How do you call a function named 'myFunction' ?",
+          "answer":"myFunction()",
+          "choices":[
+              {
+                  "choice1":"myFunction()"
+              },
+              {
+                  "choice2":"call myFunction()"
+              },
+              {
+                  "choice3":"call  function myFunction()"
+              },
+              {
+                  "choice4":"call (´ myFunction() ª)"
+              }
+          ]
+      },
+      {
+          "question":"What does RAM stand for ?",
+          "answer":"Random Access Memory",
+          "choices":[
+              {
+                  "choice1":"Random Access Memory"
+              },
+              {
+                  "choice2":"Random All Memory"
+              },
+              {
+                  "choice3":"Read All Memory"
+              },
+              {
+                  "choice4":"Read Access Memory"
+              }
+          ]
+      },
+      {
+          "question":"Which event occurs when the user clicks on an HTML element ?",
+          "answer":"onclick",
+          "choices":[
+              {
+                  "choice1":"onclick"
+              },
+              {
+                  "choice2":"onmouseclick"
+              },
+              {
+                  "choice3":"onchange"
+              },
+              {
+                  "choice4":"onmouseover"
+              }
+          ]
+      },
+      {
+          "question":"Which data type is used to create a variable that should store text in Java ?",
+          "answer":"String",
+          "choices":[
+              {
+                  "choice1":"String"
+              },
+              {
+                  "choice2":"Strings"
+              },
+              {
+                  "choice3":"myString"
+              },
+              {
+                  "choice4":"Txt"
+              }
+          ]
+      },
+      {
+          "question":"How do you create a variable with the numeric value 5 in Java ?",
+          "answer":"int x = 5 ;",
+          "choices":[
+              {
+                  "choice1":"int x = 5 ;"
+              },
+              {
+                  "choice2":"float x = 5 ;"
+              },
+              {
+                  "choice3":"x = 5 ;"
+              },
+              {
+                  "choice4":"num x = 5 ;"
+              }
+          ]
+      },
+      {
+          "question":"Which operator is used to add together two values ?",
+          "answer":"+",
+          "choices":[
+              {
+                  "choice1":"+"
+              },
+              {
+                  "choice2":"&"
+              },
+              {
+                  "choice3":"*"
+              },
+              {
+                  "choice4":"%"
+              }
+          ]
+      },
+      {
+          "question":"Which operator can be used to compare equal two values ?",
+          "answer":"==",
+          "choices":[
+              {
+                  "choice1":"=="
+              },
+              {
+                  "choice2":"><"
+              },
+              {
+                  "choice3":"<>"
+              },
+              {
+                  "choice4":"="
+              }
+          ]
+      },
+      {
+          "question":"What do array indices start with?",
+          "answer":"0",
+          "choices":[
+              {
+                  "choice1":"0"
+              },
+              {
+                  "choice2":"1"
+              },
+              {
+                  "choice3":"-1"
+              },
+              {
+                  "choice4":"10"
+              }
+          ]
+      },
+      {
+          "question":"Which SQL statement is used to extract data from a database ?",
+          "answer":"SELECT",
+          "choices":[
+              {
+                  "choice1":"SELECT"
+              },
+              {
+                  "choice2":"EXTRACT"
+              },
+              {
+                  "choice3":"GET"
+              },
+              {
+                  "choice4":"OPEN"
+              }
+          ]
+      },
+      {
+          "question":"Which SQL statement is used to update data in a database ?",
+          "answer":"UPDATE",
+          "choices":[
+              {
+                  "choice1":"UPDATE"
+              },
+              {
+                  "choice2":"SAVE"
+              },
+              {
+                  "choice3":"SAVE AS"
+              },
+              {
+                  "choice4":"MODIFY"
+              }
+          ]
+      },
+      {
+          "question":"Which SQL statement is used to delete data from a database?",
+          "answer":"DELETE",
+          "choices":[
+              {
+                  "choice1":"DELETE"
+              },
+              {
+                  "choice2":"REMOVE"
+              },
+              {
+                  "choice3":"COLLAPSE"
+              },
+              {
+                  "choice4":"DESTROY"
+              }
+          ]
+      },
+      {
+          "question":"Which SQL statement is used to insert data from a database ?",
+          "answer":"INSERT INTO",
+          "choices":[
+              {
+                  "choice1":"INSERT INTO"
+              },
+              {
+                  "choice2":"INSERT NEW"
+              },
+              {
+                  "choice3":"ADD NEW"
+              },
+              {
+                  "choice4":"ADD RECORD"
+              }
+          ]
+      },
+      {
+          "question":"All variables in PHP start with which symbol ?",
+          "answer":"$",
+          "choices":[
+              {
+                  "choice1":"$"
+              },
+              {
+                  "choice2":"&"
+              },
+              {
+                  "choice3":"£"
+              },
+              {
+                  "choice4":"ß"
+              }
+          ]
+      }
+  ]
+}
