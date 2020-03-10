@@ -1,18 +1,23 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
 
 
-
+.creatortable{
+  margin-bottom: 2%;
+}
 .creatortable, .huntertable{
     display: inline-block;
     table-layout: fixed;
+    height: 38%;
+    
 }
 
 thead, tbody{display:block;}
 
 tbody{
-    overflow-x:hidden;
-    overflow-y:auto;
-    height: 400px;
+    overflow-y:scroll;
+    height:50em;
+    display:block;
+    
 }
 
 .title{
@@ -42,7 +47,6 @@ div.table-title {
   border-collapse: collapse;
   height: 320px;
   margin: auto;
-  max-width: 600px;
   padding:5px;
   width: 100%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
