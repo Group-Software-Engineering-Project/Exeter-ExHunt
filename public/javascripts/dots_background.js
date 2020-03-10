@@ -116,7 +116,6 @@ function animate() {
     xVal++;
     build();
 
-    //console.log("Prep: animate ==> requestAnimFrame");
     // request a new frame
     requestAnimFrame(function () {
         animate();

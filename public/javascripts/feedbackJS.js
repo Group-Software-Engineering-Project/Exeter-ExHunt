@@ -9,7 +9,6 @@ const ratings = [];
   //ratings.push(track.track_ranking)
 //});
 
-console.log(ratings);
 
 // Total Stars
 const starsTotal = 5;

@@ -19,8 +19,12 @@ feedback_router.get('/', function(req, res, next) {
 feedback_router.post('/update',urlencodedParser,(req,res)=>{
   
   var query = {'name': req.body.select};
-  Tracks.updateOne(query,{track_ranking:req.body.rate}).then(result => {
-      console.log(result);
+  Tracks.updateOne(query,{track_ranking:req.body.rate, number_of_plays:+1}).then(result => {
+      if(result.ok != 1) {
+        res.redirect('/login');
+      } else {
+        alert("Congrats, your rating has been added to the database!");
+      }
   });
   res.redirect('/login');
 });
