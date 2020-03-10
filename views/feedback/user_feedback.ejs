@@ -8,7 +8,7 @@
   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <form action="/feedback/update" method="POST" id="form1">
     <div class="form-group">
-      <select id="product-select" class="form-control custom-select">
+      <select id="product-select" class="form-control custom-select" name="select">
           <option value="track_name" disabled selected>Select Product</option>
           <% tracks.forEach(function(track) { %>
             <option><%= track.name %></option>
@@ -16,7 +16,7 @@
         </select>
     </div>
     <div class="form-group">
-      <input type="number" id="rating-control" class="form-control" step="0.1" max="5" placeholder="Rate 1 - 5">
+      <input type="number" id="rating-control" class="form-control" step="0.1" max="5" placeholder="Rate 1 - 5" name="rate">
       <br>
       <input type="submit" id="submit">
     </div>
