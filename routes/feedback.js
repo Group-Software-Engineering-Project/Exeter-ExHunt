@@ -28,9 +28,10 @@ feedback_router.post('/update',urlencodedParser,(req,res)=>{
     var oldAvg = file.track_ranking;
     var newRating = parseInt(req.body.rate); 
     var avgRating = (oldAvg*(num-1) + newRating)/num;
-    var query = {'name': req.body.select};
+    var roundedRating = Math.round(avgRating*100)/100;
 
-    Tracks.updateOne(query,{track_ranking:avgRating,number_of_plays:num}).then(result => {
+    var query = {'name': req.body.select};
+    Tracks.updateOne(query,{track_ranking:roundedRating,number_of_plays:num}).then(result => {
       console.log(result.ok);
       if(result.ok != 1) {
         res.redirect('/feedback');
