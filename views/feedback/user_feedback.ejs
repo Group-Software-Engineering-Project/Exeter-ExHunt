@@ -6,10 +6,10 @@
 
 <div class="container mt-5">
   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <form action="/feedback/rankingpost" method="POST" enctype="multipart/form-data" id="form1">
+  <form action="/feedback/update" method="POST" id="form1">
     <div class="form-group">
       <select id="product-select" class="form-control custom-select">
-          <option value="0" disabled selected>Select Product</option>
+          <option value="track_name" disabled selected>Select Product</option>
           <% tracks.forEach(function(track) { %>
             <option><%= track.name %></option>
           <% }) %>

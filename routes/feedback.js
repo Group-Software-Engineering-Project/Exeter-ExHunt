@@ -1,6 +1,6 @@
 // routes/auth-routes.js
 const express = require("express");
-const router = express.Router();
+const feedback_router = express.Router();
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const ensureLogin = require("connect-ensure-login");
@@ -8,13 +8,17 @@ const ensureLogin = require("connect-ensure-login");
 const Tracks = require('../models/tracks');
 const cookieSession = require('cookie-session'); 
 
-router.get('/', function(req, res, next) {
+feedback_router.get('/', function(req, res, next) {
   Tracks.find({},"name track_ranking",function(err,tracks){
     res.render('feedback/user_feedback', { title: 'Feedback', tracks: tracks});
   }).sort([['track_ranking', -1]]);
 });
 
-//router.post('/rankingpost'),function(req,res){
-  //Tracks.updateOne({name:track})
+//trackCreator.post('/upload',upload.any(),function(req,res){
+//authRoutes.post("/login", urlencodedParser, (req, res, next) => {
 
-module.exports = router;
+feedback_router.post('/update'),urlencodedParser, function(req,res){
+  console.log(req.body);
+  //Tracks.updateOne({name:track_name}, )
+}
+module.exports = feedback_router;
