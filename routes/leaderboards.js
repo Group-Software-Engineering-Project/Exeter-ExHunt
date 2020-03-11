@@ -1,9 +1,12 @@
+// routes/leaderboards.js
 const express = require('express');
 const leaderboardsViewer = express.Router();
 const mongoose = require('mongoose');
 const Tracks = require('../models/tracks');
+// User model
 const User = require("../models/user");
 
+// fetch data from database while routing
 leaderboardsViewer.get('/', function(req, res, next) {
     Tracks.find({},"creator name track_ranking",function(err,tracks){
         User.find({role:"Hunter"},"username track_hunter_ranking",function(err,users){

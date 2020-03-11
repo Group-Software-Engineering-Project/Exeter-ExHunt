@@ -1,8 +1,10 @@
+/*set "stars-outer" properties */
 .stars-outer {
   position: relative;
   display: inline-block;
 }
 
+/*set "stars-inner" properties */
 .stars-inner {
   position: absolute;
   top: 0;
@@ -12,6 +14,7 @@
   width: 0;
 }
 
+/*set "stars-outer::before" properties */
 .stars-outer::before {
   content: "\f005 \f005 \f005 \f005 \f005";
   font-family: "Font Awesome 5 Free";
@@ -19,6 +22,7 @@
   color: #ccc;
 }
 
+/*set "stars-outer::inner" properties */
 .stars-inner::before {
   content: "\f005 \f005 \f005 \f005 \f005";
   font-family: "Font Awesome 5 Free";
@@ -27,15 +31,17 @@
 }
 
 
-
+/*set html properties */
 html {
   height:100%;
 }
 
+/*set body properties */
 body {
   margin:0;
 }
 
+/*set "bg" properties */
 .bg {
   animation:slide 3s ease-in-out infinite alternate;
   background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
@@ -48,15 +54,18 @@ body {
   z-index:-1;
 }
 
+/*set "bg2" properties */
 .bg2 {
   animation-direction:alternate-reverse;
   animation-duration:4s;
 }
 
+/*set "bg3" properties */
 .bg3 {
   animation-duration:5s;
 }
 
+/*set "content" properties */
 .content {
   background-color:rgba(255,255,255,.8);
   border-radius:.25em;
@@ -70,6 +79,7 @@ body {
   transform:translate(-50%, -50%);
 }
 
+/*set h1 properties */
 h1 {
   font-family:monospace;
 }
