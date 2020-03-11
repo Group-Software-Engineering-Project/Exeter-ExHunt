@@ -27,7 +27,6 @@ router.get('/',function(req,res){
     gfs.files.findOne({_id:mongoose.Types.ObjectId(currentTrack.challenges[x].Vid1ID)},(err, file) => {
         // Check if files
         if (!file || file.length === 0) {
-            console.log("FUCK");
             res.render('hunter/hunter_loop');
         }
         else {
@@ -51,7 +50,6 @@ router.get('/',function(req,res){
   });
 
 router.get('/video/:filename', (req, res) => {
-    console.log("vid");
     gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
       // Check if file
       if (!file || file.length === 0) {
@@ -64,5 +62,9 @@ router.get('/video/:filename', (req, res) => {
       return readstream.pipe(res);
     });
   });
+
+router.get('/ar',(req,res)=>{
+  res.render('hunter/ar');
+})
 
 module.exports = router;
