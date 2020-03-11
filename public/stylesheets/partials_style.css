@@ -1,8 +1,9 @@
+/*set "logoutbar" properties */
 .logoutbar{
     padding: 5px;
 }
 
-
+/*set "footerArea" properties */
 .footerArea{
     background-color: rgb(228, 228, 228);
     max-width: fit-content;
@@ -13,6 +14,7 @@
     margin-top: 2%;
 }
 
+/*set "resourcesPageButton" properties */
 .resourcesPageButton{
     text-align: right;
     position: fixed;
@@ -20,6 +22,7 @@
     right: 2%;
 }
 
+/*set "leaderboardButton" properties */
 .leaderboardButton{
     text-align: left;
     position: fixed;
@@ -27,10 +30,12 @@
     left: 2%;
 }
 
+/*set "RButtonText" properties */
 .RButtonText{
     font-size: smaller;
 }
 
+/*set "LButtonText" properties */
 .LButtonText{
     font-size: smaller;
 }

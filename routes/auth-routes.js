@@ -20,14 +20,17 @@ var callback = () => console.log("Hello yo!");
 const bcrypt     = require("bcryptjs");
 const bcryptSalt = 10;
 
+//route to "signup" page
 authRoutes.get("/", (req, res, next) => {
   res.render("auth/signup");
 });
 
+//route to "login" page
 authRoutes.get("/login", (req, res, next) => {
   res.render("auth/login");
 });
 
+//route login 
 authRoutes.post("/login", urlencodedParser, (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
@@ -60,6 +63,7 @@ authRoutes.post("/login", urlencodedParser, (req, res, next) => {
   });
 });
 
+//route signup
 authRoutes.post("/signup", urlencodedParser, (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
