@@ -84,9 +84,11 @@ authRoutes.post("/signup", urlencodedParser, (req, res, next) => {
       return;
     }
 
+    //encrypt paswword 
     var salt = bcrypt.genSaltSync(bcryptSalt);
     var hashPass = bcrypt.hashSync(password, salt);
 
+    //new user model
     const newUser = new User({
       username,
       password: hashPass, 
@@ -97,6 +99,7 @@ authRoutes.post("/signup", urlencodedParser, (req, res, next) => {
       track_hunter_ranking
     });
 
+    //new user email signup
     newUser.save((err) => {
       if (err) {
         res.render("auth/signup", { message: "Something went wrong" });

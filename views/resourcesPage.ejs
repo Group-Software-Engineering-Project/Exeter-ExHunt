@@ -2,9 +2,8 @@
 <html>
     <head>
         <style>
-            /* Having a picture of the university in the background*/
+            /* set background*/
             body{
-                
                 background-image: url("https://upload.wikimedia.org/wikipedia/commons/f/f8/University_of_Exeter_Forum.jpg");
                 background-position: center center;
                 background-repeat: no-repeat;
@@ -13,7 +12,7 @@
                 color: darkblue;
             }
 
-            /* Format of my table */
+            /* table format */
             table, th, td{
                 border: 1px solid black;
                 border-collapse: collapse;
@@ -23,20 +22,20 @@
             th, td{
                 padding: 15px;
             }
-            /* Format of the heading of my tables */
+            /* table heading format */
             th{
                 color: white;
                 background-color: darkblue;
             }
 
-            /* Format of the data in my tables */
+            /* table data format */
             td{
                 border: 1px solid darkblue;
                 background-color: white;
                 color: darkblue;
             }
 
-            /* Style of the */
+            /* "accordion" style */
             .accordion {
                 background-color: darkblue;
                 color: white;
@@ -50,10 +49,12 @@
                 transition: 0.4s;
             }
 
+            /* style when hovering */
             .active, .accordion:hover {
                 background-color: #a8d4e9;
             }
 
+            /* "accordion" style after */
             .accordion:after {
                 content: '\002B';
                 color:white;
@@ -62,10 +63,12 @@
                 margin-left: 5px;
             }
 
+            /* "active" style afyer*/
             .active:after {
                 content: "\2212";
             }
 
+            /* "panel" style */
             .panel {
                 padding: 0 18px;
                 background-color: white;
@@ -77,11 +80,11 @@
     </head>
     <body>
         
+        <!-- student ressource page-->
         <h1 align = "center"> STUDENT RESOURCE PAGE</h1>
         <p> Check out the facilities in which the university offers as shown down below</p>
 
-        <!-- I have made a section for Facilities provided by the university
-             -->
+        <!-- Facilities info-->
         <h2>Facilities</h2>
         <p>Check out the facilities in which the university offers as shown down below. 
          This is where you'll get to see the locations and some information about certain facilities.
@@ -121,7 +124,7 @@
                 <td><a href="http://sport.exeter.ac.uk/">For more information about the Sports Park, click here</a></td>
             </tr>
             <tr>
-                <td>Harrisons</td>
+                <td>Harrison</td>
                 <td>This is the building where you will be practising programming skills and be doing 
                     workshops and maybe a few lectures. This is also the building, for where you will 
                     submitting coursework, if they had to be handed in paper. This building is open 24 
@@ -146,6 +149,7 @@
             </tr>
         </table>
 
+        <!-- contact info-->
         <h2>Contacts</h2>
         <p>Down below are people who you can contact with regarding of your course. If you ever need help 
         </p>
@@ -180,6 +184,7 @@
             </tr>
         </table>
 
+        <!-- FAQs-->
         <h2>Frequently Asked Questions (FAQs)</h2>
         <p>Down below are our answers to the most frequently asked questions.</p>
         <button class="accordion">I can’t view my timetable on MyTimetable/iExeter, what should I do?</button>
@@ -209,7 +214,7 @@
             <p>The module change process is controlled by Colleges. It is usually necessary for you to complete a Module Change Form to ensure that the Examinations Office is notified of any changes relevant to the exam timetabling.</p>
         </div>
 
-
+        <!-- latest compiled JavaScript-->
         <script>
             var acc = document.getElementsByClassName("accordion");
             var i;

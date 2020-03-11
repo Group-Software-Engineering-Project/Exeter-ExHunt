@@ -1,16 +1,25 @@
+// routes/trackCreatorloop.js
 var express = require('express');
 var trackCreator = express.Router();
+
+// mongoose model
 const mongoose = require('mongoose');
+
+// require GridFs for video chunking
 const GridFsStorage = require('multer-gridfs-storage');
 const grid = require('gridfs-stream');
+
+// Challenges model
 const Challenges = require('../models/challenges');
+
+// Tracks model
 const Tracks = require('../models/tracks');
 
 
 var multer = require('multer');
 var fs = require('fs');
 
-
+//database connection
 const conn = mongoose.createConnection('mongodb://localhost/exhunt');
 
 let gfs;
@@ -36,6 +45,7 @@ const storage = new GridFsStorage({
 
 const upload = multer({storage});
 
+// create track
 var username;
 var track;
 var number_of_challenges = 1000;
@@ -53,7 +63,7 @@ trackCreator.get('/', function(req, res) {
     
 });
 
-
+// track upload
 trackCreator.post('/upload',upload.any(),function(req,res){
     if (x ==0) {
         number_of_challenges = req.body.num_challenges;
@@ -98,6 +108,7 @@ trackCreator.post('/upload',upload.any(),function(req,res){
     
 });
 
+// created track info
 function createTrack(name,creator,num_challenges) {
     var track = new Tracks({
         name: name,
@@ -110,6 +121,7 @@ function createTrack(name,creator,num_challenges) {
     return track;
 };
 
+// created challenge info
 function createChallenge(Track,TrackID, Vid1, Vid2,locations) {
     var challenge = new Challenges.challengeModel({
         TrackID: TrackID,

@@ -1,8 +1,9 @@
+// routes/trackLanding.js
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 
-/* GET home page. */
+// GET home page
 router.get('/', function(req, res, next) {
   if (req.session.currentUser == undefined || req.session.currentUser.role == 'Hunter') {
     res.redirect('/login')
