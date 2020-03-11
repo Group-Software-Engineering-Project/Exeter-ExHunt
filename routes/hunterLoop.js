@@ -5,10 +5,18 @@ const GridFsStorage = require('multer-gridfs-storage');
 const grid = require('gridfs-stream');
 const Challenges = require('../models/challenges');
 const Tracks = require('../models/tracks');
-const User = require('../models/user')
+const User = require('../models/user');
+const fs = require('fs');
 
 var currentTrack;
 var x;
+var questions;
+var currentquestion=0;
+
+fs.readFile('questions.json', (err,data) => {
+  questions = JSON.parse(data);
+  console.log(questions.questions.length);
+});
 
 const conn = mongoose.createConnection('mongodb://localhost/exhunt');
 
@@ -47,24 +55,29 @@ router.get('/loop',function(req,res){
         else {
           if (x==currentTrack.number_of_challenges) {
             User.updateOne({username:req.session.currentUser.username},{track_name:"",challenge_level:0}).then(result=>{
-              res.render('hunter/hunter_loop',{files:file,end:true});
+              res.render('hunter/hunter_loop',{files:file,end:true,question:questions.questions[0]});
             });
             
           }
           else {
+            while(true){
+              var random = getRandomInt();
+              if (random!=currentquestion){
+                currentquestion=random;
+                break;
+              }
+            }
+            
             //console.log(file);
             User.updateOne({username:req.session.currentUser.username},{challenge_level:x}).then(result=>{
               x++;
               console.log("x is "+x);
-              res.render('hunter/hunter_loop',{files:file,end:false});
+              console.log(currentTrack.challenges[x-1].Location);
+              res.render('hunter/hunter_loop',{files:file,end:false,question:questions.questions[currentquestion],coords:currentTrack.challenges[x-1].Location});
             });
           }
       }
     });
-
-
-    
-
 });
 
 router.get('/track_loop/video/:filename', (req, res) => {
@@ -81,7 +94,9 @@ router.get('/track_loop/video/:filename', (req, res) => {
     });
   });
 
-
+function getRandomInt() {
+  return Math.floor(Math.random() * Math.floor(22));
+}
 
 
 module.exports = router;

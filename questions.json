@@ -1,0 +1,419 @@
+
+{
+    "questions": [
+        {
+            "question":"How do you output ' Hello World ! ' in Python ?",
+            "answer":"print (« Hello World ! »)",
+            "choice":[
+                {
+                    "choice":"print (« Hello World ! »)"
+                },
+                {
+                    "choice":"print « Hello World ! »"
+                },
+                {
+                    "choice":"print ( Hello World ! )"
+                },
+                {
+                    "choice":"(print (Hello World !) )"
+                }
+            ]
+        },
+        {
+            "question":"How do you assign the number 5 to a variable X in Python ?",
+            "answer":"X = 5",
+            "choice":[
+                {
+                    "choice":"X = 5"
+                },
+                {
+                    "choice":"X != 5"
+                },
+                {
+                    "choice":"X == 5"
+                },
+                {
+                    "choice":"X <- 5"
+                }
+            ]
+        },
+        {
+            "question":"How do you initialise a ' For loop ' ?",
+            "answer":"for x > y",
+            "choice":[
+                {
+                    "choice":"for x > y"
+                },
+                {
+                    "choice":"for each x in y"
+                },
+                {
+                    "choice":"for x in y"
+                },
+                {
+                    "choice":"for (x > y)"
+                }
+            ]
+        },
+        {
+            "question":"Which is not a legal variable name ?",
+            "answer":"_myvar",
+            "choice":[
+                {
+                    "choice":"_myvar"
+                },
+                {
+                    "choice":"my_var"
+                },
+                {
+                    "choice":"Myvar"
+                },
+                {
+                    "choice":"My-var"
+                }
+            ]
+        },
+        {
+            "question":"How do you remove a white space ?",
+            "answer":"strip()",
+            "choice":[
+                {
+                    "choice":"strip()"
+                },
+                {
+                    "choice":"trim()"
+                },
+                {
+                    "choice":"len()"
+                },
+                {
+                    "choice":"rem()"
+                }
+            ]
+        },
+        {
+            "question":"What does HTML stand for ?",
+            "answer":"Hyper Text Markup Language",
+            "choice":[
+                {
+                    "choice":"Hyper Text Markup Language"
+                },
+                {
+                    "choice":"Hyperlink and Text Markup Language"
+                },
+                {
+                    "choice":"Home Tool Markup Language"
+                },
+                {
+                    "choice":"Hyper Text Marking Language"
+                }
+            ]
+        },
+        {
+            "question":"With what tool can you style a HTML file ?",
+            "answer":"CSS",
+            "choice":[
+                {
+                    "choice":"CSS"
+                },
+                {
+                    "choice":"Python"
+                },
+                {
+                    "choice":"Java"
+                },
+                {
+                    "choice":"C++"
+                }
+            ]
+        },
+        {
+            "question":"What does CSS stand for ?",
+            "answer":"Cascading Style Sheet",
+            "choice":[
+                {
+                    "choice":"Cascading Style Sheet"
+                },
+                {
+                    "choice":"Colorful Style Sheet"
+                },
+                {
+                    "choice":"Creative Style Sheet"
+                },
+                {
+                    "choice":"Computing Style Sheet"
+                }
+            ]
+        },
+        {
+            "question":"Which property is used to change the background color ?",
+            "answer":"background-color",
+            "choice":[
+                {
+                    "choice":"background-color"
+                },
+                {
+                    "choice":"background-colour"
+                },
+                {
+                    "choice":"bgcolor"
+                },
+                {
+                    "choice":"bg-color"
+                }
+            ]
+        },
+        {
+            "question":"Which CSS property controls the text size?",
+            "answer":"font-size",
+            "choice":[
+                {
+                    "choice":"font-size"
+                },
+                {
+                    "choice":"text-size"
+                },
+                {
+                    "choice":"font-style"
+                },
+                {
+                    "choice":"text-style"
+                }
+            ]
+        },
+        {
+            "question":"How do you write 'Hello World' in an alert box ?",
+            "answer":"alert(« Hello World ») ;",
+            "choice":[
+                {
+                    "choice":"alert(« Hello World ») ;"
+                },
+                {
+                    "choice":"msgBox(« Hello World ») ;"
+                },
+                {
+                    "choice":"alertBox(« Hello World ») ;"
+                },
+                {
+                    "choice":"msg(« Hello World ») ;"
+                }
+            ]
+        },
+        {
+            "question":"How do you call a function named 'myFunction' ?",
+            "answer":"myFunction()",
+            "choice":[
+                {
+                    "choice":"myFunction()"
+                },
+                {
+                    "choice":"call myFunction()"
+                },
+                {
+                    "choice":"call  function myFunction()"
+                },
+                {
+                    "choice":"call (« myFunction() »)"
+                }
+            ]
+        },
+        {
+            "question":"What does RAM stand for ?",
+            "answer":"Random Access Memory",
+            "choice":[
+                {
+                    "choice":"Random Access Memory"
+                },
+                {
+                    "choice":"Random All Memory"
+                },
+                {
+                    "choice":"Read All Memory"
+                },
+                {
+                    "choice":"Read Access Memory"
+                }
+            ]
+        },
+        {
+            "question":"Which event occurs when the user clicks on an HTML element ?",
+            "answer":"onclick",
+            "choice":[
+                {
+                    "choice":"onclick"
+                },
+                {
+                    "choice":"onmouseclick"
+                },
+                {
+                    "choice":"onchange"
+                },
+                {
+                    "choice":"onmouseover"
+                }
+            ]
+        },
+        {
+            "question":"Which data type is used to create a variable that should store text in Java ?",
+            "answer":"String",
+            "choice":[
+                {
+                    "choice":"String"
+                },
+                {
+                    "choice":"Strings"
+                },
+                {
+                    "choice":"myString"
+                },
+                {
+                    "choice":"Txt"
+                }
+            ]
+        },
+        {
+            "question":"How do you create a variable with the numeric value 5 in Java ?",
+            "answer":"int x = 5 ;",
+            "choice":[
+                {
+                    "choice":"int x = 5 ;"
+                },
+                {
+                    "choice":"float x = 5 ;"
+                },
+                {
+                    "choice":"x = 5 ;"
+                },
+                {
+                    "choice":"num x = 5 ;"
+                }
+            ]
+        },
+        {
+            "question":"Which operator is used to add together two values ?",
+            "answer":"+",
+            "choice":[
+                {
+                    "choice":"+"
+                },
+                {
+                    "choice":"&"
+                },
+                {
+                    "choice":"*"
+                },
+                {
+                    "choice":"%"
+                }
+            ]
+        },
+        {
+            "question":"What do array indices start with?",
+            "answer":"0",
+            "choice":[
+                {
+                    "choice":"0"
+                },
+                {
+                    "choice":"1"
+                },
+                {
+                    "choice":"-1"
+                },
+                {
+                    "choice":"10"
+                }
+            ]
+        },
+        {
+            "question":"Which SQL statement is used to extract data from a database ?",
+            "answer":"SELECT",
+            "choice":[
+                {
+                    "choice":"SELECT"
+                },
+                {
+                    "choice":"EXTRACT"
+                },
+                {
+                    "choice":"GET"
+                },
+                {
+                    "choice":"OPEN"
+                }
+            ]
+        },
+        {
+            "question":"Which SQL statement is used to update data in a database ?",
+            "answer":"UPDATE",
+            "choice":[
+                {
+                    "choice":"UPDATE"
+                },
+                {
+                    "choice":"SAVE"
+                },
+                {
+                    "choice":"SAVE AS"
+                },
+                {
+                    "choice":"MODIFY"
+                }
+            ]
+        },
+        {
+            "question":"Which SQL statement is used to delete data from a database?",
+            "answer":"DELETE",
+            "choice":[
+                {
+                    "choice":"DELETE"
+                },
+                {
+                    "choice":"REMOVE"
+                },
+                {
+                    "choice":"COLLAPSE"
+                },
+                {
+                    "choice":"DESTROY"
+                }
+            ]
+        },
+        {
+            "question":"Which SQL statement is used to insert data from a database ?",
+            "answer":"INSERT INTO",
+            "choice":[
+                {
+                    "choice":"INSERT INTO"
+                },
+                {
+                    "choice":"INSERT NEW"
+                },
+                {
+                    "choice":"ADD NEW"
+                },
+                {
+                    "choice":"ADD RECORD"
+                }
+            ]
+        },
+        {
+            "question":"All variables in PHP start with which symbol ?",
+            "answer":"$",
+            "choice":[
+                {
+                    "choice":"$"
+                },
+                {
+                    "choice":"&"
+                },
+                {
+                    "choice":"£"
+                },
+                {
+                    "choice":"§"
+                }
+            ]
+        }
+    ]   
+}

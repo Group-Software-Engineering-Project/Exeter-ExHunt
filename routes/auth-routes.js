@@ -84,7 +84,8 @@ authRoutes.post("/signup", urlencodedParser, (req, res, next) => {
       email_address, 
       personal_tutor, 
       challenge_level, 
-      track_hunter_ranking
+      track_hunter_ranking,
+      track_name: ""
     });
 
     newUser.save((err) => {

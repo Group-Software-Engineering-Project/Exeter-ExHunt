@@ -12,16 +12,17 @@
                 </video>
                 <a class="button" style="margin-bottom: 1%; border-radius: 10px; width: 48%; margin-left: 1%; margin-right: 1%;" onclick="moveOn('vid1','<%=end %>')">Continue</a>
                 <a class="button" style="margin-bottom: 1%; border-radius: 10px; width: 48%; margin-left: 1%; margin-right: 1%;" onclick="replay('video1')">Replay</a>
-            </div> 
+            </div>
             <div class="question_div" style="display: none;" id="questions">
                 <label style="width: 100%;">Can you Answer this Question?</label>
-                <label style="width: 100%;">poo</label>
-                <input type="radio" id="yes" name="question" value="yes" onclick="showSelected(this.value)">
-                <label for="yes">yes</label>
-                <input type="radio" id="no1" name="question" value="no" onclick="showSelected(this.value)">
-                <label for="no1">no</label>
-                <input type="radio" id="no2" name="question" value="no" onclick="showSelected(this.value)">
-                <label for="no2">no</label>
+                <label style="width: 100%;"><%=question.question %></label>
+                <% question.choice.forEach((choice)=> { %>
+                    <div style="width: 100%; display: inline-block;">
+                        <input type="radio" name="question" value="<%=choice.choice %>" onclick="showSelected(this.value)">
+                        <label for="<%=choice.choice %>"><%=choice.choice %></label>
+                    </div>
+                <% }) %>
+                <input type="hidden" id="hiddenanswer" value="<%=question.answer %>">
                 <p class="questionpara"" id="answer"></p>
                 <a class="button" style="margin-bottom: 1%;" onclick="checkQuestion()">Submit</a>
                 <p class="questionpara" style="color: red; display: none;" id="wronganswer">This is the wrong answer</p>
@@ -31,7 +32,9 @@
                     <source src="track_loop/video/<%= files[1].filename %>">
                 </video>   
                 <% if(end==false) { %>
-                    <a class="button" style="margin-bottom: 1%; border-radius: 10px; width: 48%; margin-left: 1%; margin-right: 1%;" href="/track_loop/loop">Check Location</a>
+                    <a class="button" style="margin-bottom: 1%; border-radius: 10px; width: 48%; margin-left: 1%; margin-right: 1%;" onclick="getLocation()">Check Location</a>
+                    <a class="questionpara"id="lat"style="display:none;"><%=coords[0] %></a>
+                    <a class="questionpara"id="lon"style="display:none;"><%=coords[1] %></a>
                 <% } else { %>
                     <a class="button" style="margin-bottom: 1%; border-radius: 10px; width: 48%; margin-left: 1%; margin-right: 1%;"href="/feedback">Finish</a>
                 <% } %>
