@@ -15,14 +15,15 @@
             <!-- Populate table "creatortable" -->
             <table class="creatortable">
                 <tr>
-                    <th>Rank</th><th>Name</th><th>Track Creator</th><th>Rating</th>
+                    <th>Rank</th><th>Name</th><th>Track Creator</th><th>Number of Plays</th><th>Average Rating</th>
                 </tr>
                 <% var i = 0 %>
                 <% tracks.forEach(function(track) { i++;%>
                 <tr>
                     <td><%= i %></td>
                     <td><%= track.name %></td>
-                    <td><%= track.creator %></td> 
+                    <td><%= track.creator %></td>
+                    <td><%= track.number_of_plays %></td>
                     <td><%= track.track_ranking %></td>
                 </tr>
             <% }) %>
