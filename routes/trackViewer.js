@@ -14,7 +14,7 @@ trackViewer.get('/', function(req, res, next) {
     }
     else {
         const username = req.session.currentUser.username;
-        Tracks.find({creator:username},"creator name number_of_challenges track_ranking",function(err,tracks){
+        Tracks.find({creator:username},"creator name number_of_challenges track_ranking number_of_plays",function(err,tracks){
             res.render('creator/view_track', { title: 'Track Viewer', username: username, tracks: tracks});
         });
     }

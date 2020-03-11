@@ -15,7 +15,7 @@
         <div class="back_div bd_view">
             <% tracks.forEach(function(track) { %>
             <div class="tracklist">
-                <p><h4>Track Name: <%= track.name %></h4> Creator: <%= track.creator %><br> Number of challenges: <%= track.number_of_challenges %><br> Ranking: <%= track.track_ranking %> </p>
+                <p><h4>Track Name: <%= track.name %></h4> Creator: <%= track.creator %><br> Number of challenges: <%= track.number_of_challenges %><br> Ranking: <%= track.track_ranking %> <br> Number of plays: <%= track.number_of_plays %> </p>
                 <form action="/view_track/<%= track._id %>/delete" method="POST">
                     <button class="btn btn-danger" type="submit">Delete Product</button>
                 </form>

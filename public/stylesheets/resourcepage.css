@@ -1,0 +1,91 @@
+/* Setting layout for the Headings*/
+h1, h2{
+    font-size: 50px;
+    color: black;
+    text-align: center;
+    background-color: #ffeeb8;
+}
+
+h2{
+    font-size:40px;
+}
+
+/* Setting the layout for the text in the website */
+body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+}
+
+/* Layout for the table, its heading and the data inside its cell */
+table, th, td{
+    font-size: 15px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    opacity: 90%;
+    background-color: rgb(45, 126, 248);
+}
+
+th, td{
+    padding: 15px;
+}
+
+td{
+    border: 1px solid black;
+    background-color: #ffeeb8;
+    color: rgb(45, 126, 248);
+    font-size: 2vw;
+}
+
+/* Layout for the FAQ dropdown buttons*/
+.dropdown {
+    background-color: rgb(45, 126, 248);
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 25px;
+    opacity: 90%;
+}
+/* Dropdown changes colour when you have your mouse on it*/
+.active, .dropdown:hover {
+    background-color: #a8d4e9;
+}
+
+/* Layout for the + sign on the dropdown button */
+.dropdown:after {
+    content: '\002B';
+    color:white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    opacity: 100%;
+}
+
+/* When dropdown button expands, the sign + -> - and becomes white */
+.active:after {
+    content: "\2212";
+    color: black;
+}
+
+/* Layout of the panel when dropdown button was clicked on */
+.panel {
+    padding: 0 18px;
+    background-color: #ffeeb8;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    font-size: small;
+    color: rgb(45, 126, 248);
+    font-size: 25px;
+}
+
+/* The background colour of the text in the web page. */
+.header{
+    text-align: center;
+    background-color: #ffeeb8;
+    color: rgb(45, 126, 248);
+    font-size: 17.5px;
+}

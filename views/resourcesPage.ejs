@@ -204,33 +204,199 @@
             </p>
         </div>
 
-        <button class="accordion">How do I find my student candidate number?</button>
-        <div class="panel">
-            <p>You can obtain your candidate number for the current academic year from your online <a href="https://www.exeter.ac.uk/students/iexeter/">iExeter</a>/SRS record.</p>
-        </div>
+        <!--Imports the dot background and resourcepage css-->
 
-        <button class="accordion">How do I go about changing modules?</button>
-        <div class="panel">
-            <p>The module change process is controlled by Colleges. It is usually necessary for you to complete a Module Change Form to ensure that the Examinations Office is notified of any changes relevant to the exam timetabling.</p>
-        </div>
+        <link rel="stylesheet" type="text/css" href="stylesheets/resourcepage.css">      
+        <link rel="stylesheet" href="/stylesheets/dots_background.css"/>
+    </head>
+    <body>
+
+        <!--Sets the canvas for the dots -->
+        
+        <canvas style="z-index: -1"id="canvas1"></canvas>
+            <h1> STUDENT RESOURCE PAGE</h1>
+            <p class="header"> Check out the facilities which the university offers as shown down below</p>
+
+            <!-- Section for facilities provided by the university-->
 
         <!-- latest compiled JavaScript-->
         <script>
             var acc = document.getElementsByClassName("accordion");
             var i;
-            
-            for (i = 0; i < acc.length; i++) {
-              acc[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                  panel.style.maxHeight = null;
-                } else {
-                  panel.style.maxHeight = panel.scrollHeight + "px";
-                } 
-              });
-            }
-        </script>
-    </body>
-</html>
+            <h2>Facilities</h2>
+            <p class="header">Check out the facilities in which the university offers as shown down below. 
+                This is where you'll get to see the locations and some information about certain facilities.
+            </p>
 
+            <!--Table for th facilities with information, location, email and url-->
+
+            <table>
+                <tr>
+                    <th>Facilities</th>
+                    <th>Info</th>
+                    <th>Locations</th>
+                    <th>Email</th> 
+                    <th>URL links</th>
+                </tr>
+
+                <tr>
+                    <td>Library</td>
+                    <td class="big"> If there are books that you would want to borrow or to expand your knowledge
+                        of a particular subject then are 3 libraries in Streatham Campus; the Forum Library,
+                        the Old Library and the Law Library. All libraries are open 24 hours and the Library 
+                        staff will be available from 08:00 - 20:00 (Monday-Friday) and 10:00 - 18:00 (Saturday-Sunday).
+                    </td>
+                    <td>Forum Library: Stocker Rd, Exeter EX4 4PT <br>
+                        Old Library: Prince of Wales Rd, Exeter EX4 4SB<br>
+                        Lasok Law Library (Forum Library (level -1))
+                    </td>
+                    <td><address><a href="mailto:library@exeter.ac.uk">library@exeter.ac.uk</a></address></td>
+                    <td><a href="https://www.exeter.ac.uk/library/">For more information about the Library, click here</a></td>
+                </tr>
+
+                <tr>
+                    <td>University of Exeter Sports Park</td>
+                    <td class="big"> The university has a sports park and provides some facilities such as Football,
+                        Basketball, Cricket Centre, Tennis Centre and etc. The university also has a Russel
+                        Seal Fitness Centre, a gym which provides  high quality  cardio machines, weight 
+                        machines and free weight equipment to help maximise your workout, if you would ever 
+                        want to work on your fitness and maximise your workout.
+                    </td>
+                    <td> Stocker Rd, Exeter EX4 4QL </td>
+                    <td><address><a href="mailto:exetersport@exeter.ac.uk">exetersport@exeter.ac.uk</a></address></td>
+                    <td><a href="http://sport.exeter.ac.uk/">For more information about the Sports Park, click here</a></td>
+                </tr>
+
+                <tr>
+                    <td>Harrisons</td>
+                    <td class="big">This is the building where you will be practising programming skills and be doing 
+                        workshops and maybe a few lectures. This is also the building, for where you will 
+                        submitting coursework, if they had to be handed in paper. This building is open 24 
+                        hours, in case you want to use the computers and study in your own time but it requires 
+                        your univerty ID card to get access to the building. The info hub will be open from 8:15-17:00 (Monday-Friday).
+                    </td>
+                    <td>N Park Rd, Exeter EX4 4QF</td>
+                    <td><address><a href="mailto:info.harrison@exeter.ac.uk">info.harrison@exeter.ac.uk</a></address></td>
+                    <td><a href="http://emps.exeter.ac.uk/">For more information about the Harrisons, click here</a></td>
+                </tr>
+
+                <tr>
+                    <td>Students Guild</td>
+                    <td class="big"> If you want to create or join a society, you wanted some social
+                        support or you wanted to discuss certain issues with the university
+                        then the Students Guild is the place for you to talk to. 
+                    </td>
+                    <td>Devonshire House, Stocker Rd, Exeter EX4 4PZ </td>
+                    <td><address><a href="mailto:info@exeterguild.com">info@exeterguild.com</a></address><br>
+                        <address><a href="mailto:advice@exeterguild.com">advice@exeterguild.com</a>
+                    </td>
+                    <td><a href="https://www.exeterguild.org/">Visit the Students Guild website for more information!</a></td>
+                </tr>
+            </table>
+            <h2>Contacts</h2>
+            <p class="header">Down below are people who you can contact with regarding of your course. If you ever need help</p>
+            
+            <!--Table of contacts with their bio, phone number, phone extension and email-->
+            
+            <table>
+                <tr>
+                    <th>Contacts</th>
+                    <th>Bio</th>
+                    <th>Phone Number</th>
+                    <th>Extension</th>
+                    <th>Email</th> 
+                </tr>
+
+                <tr>
+                    <td>Professor Ronaldo Menezes</td>
+                    <td> This year's Head of Computer Science and Professor of Data and Network Science</td>
+                    <td><a href="tel:01392-726991">01392 726991</a></td>
+                    <td>(Streatham) 6991</td>
+                    <td><address><a href="mailto:R.Menezes@exeter.ac.uk">R.Menezes@exeter.ac.uk</a></address></td>
+                </tr>
+
+                <tr>
+                    <td>Mrs Kate Stockman</td>
+                    <td>Student Experience & Employability Team Leader - in case you are struglling with a module </td>
+                    <td><a href="tel:01392-722665">01392 722665</a></td>
+                    <td>(Streatham) 2665</td>
+                    <td><address><a href="mailto:K.Stockman@exeter.ac.uk">K.Stockman@exeter.ac.uk</a></address></td>
+                </tr>
+
+                <tr>
+                    <td>Dr Matthew Collison</td>
+                    <td>The Head of the Treasure Hunt Game</td>
+                    <td><a href="tel:01392-724533">01392 724533</a></td>
+                    <td>(Streatham) 4533</td>
+                    <td><address><a href="mailto:M.M.Collison@exeter.ac.uk">M.M.Collison@exeter.ac.uk</a></address></td>
+                 </tr>
+            </table>
+
+             <!--FAQ section for the freshers, uses interactive buttons-->
+
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            <p class="header">Down below are our answers to the most frequently asked questions.</p>
+
+            <button class="dropdown">I can’t view my timetable on MyTimetable/iExeter, what should I do?</button>
+            <div class="panel">
+                <p>Please email the Exams Office(<a href="mailto:sid@exeter.ac.uk">sid@exeter.ac.uk</a>) 
+                    and we will investigate why you cannot see your timetable online; we will then email 
+                    you back once the problem has been resolved or give further advice.
+                </p>
+            </div>
+
+            <button class="dropdown">Is there any support that I can get from the university if I have a medical condition?</button>
+            <div class="panel">
+                <p>Yes you can by registering with one of our Student Health Centres depending on the location 
+                    of your accomodation. All of our health centres have doctors and nurse practitioners and can
+                    help with medical problems as well as those related to University life, including exam stress, change in lifestyle etc. 
+                    For more information, please visit the <a href = "https://www.exeter.ac.uk/newstudents/supportandservices/yourhealthandwelfare/">Exeter's Health website</a>.  
+                </p>
+            </div>
+
+            <button class="dropdown">How do I find my student candidate number?</button>
+            <div class="panel">
+                <p>You can obtain your candidate number for the current academic year from your online <a href="https://www.exeter.ac.uk/students/iexeter/">iExeter</a>/SRS record.</p>
+             </div>
+
+             <button class="dropdown">How do I go about changing modules?</button>
+            <div class="panel">
+                <p>The module change process is controlled by Colleges. It is usually necessary for you to complete a Module Change Form to ensure that the Examinations Office is notified of any changes relevant to the exam timetabling.</p>
+            </div>
+
+            <button class="dropdown">How do I avoid covid-19?</button>
+            <div class="panel">
+                <p>Don't worry, you will be able to get covid-20 in the 2020 academic year</p>
+            </div>
+
+            <button class="dropdown">Will I get lost in the Harrisons Building?</button>
+            <div class="panel">
+                <p>Yes, even our most experienced PhD students get lost all the time. You stand no chance </p>
+            </div>
+
+            <button class="dropdown">How can I learn more about University as a fresher?</button>
+            <div class="panel">
+                <p>ExHunt will help you learn through interactive and playful enviorement the innerworkings of the University</p>
+            </div>
+
+            <!--Script for the FAQ drop down button-->
+
+            <script>
+                var acc = document.getElementsByClassName("dropdown");
+                var i;
+                for (i = 0; i < acc.length; i++) {
+                    acc[i].addEventListener("click", function() {
+                        this.classList.toggle("active");
+                        var panel = this.nextElementSibling;
+                        if (panel.style.maxHeight) {
+                             panel.style.maxHeight = null;
+                        } else {
+                            panel.style.maxHeight = panel.scrollHeight + "px";
+                        } 
+                     });
+                }
+            </script>
+
+        </body>
+    <script type="text/javascript" src="/javascripts/dots_background.js"></script>
+</html>

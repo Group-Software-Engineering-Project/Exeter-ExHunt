@@ -2348,7 +2348,6 @@ node_modules/ejs/postinstall.js
 node_modules/ejs/jakefile.js
 node_modules/ejs/postinstall.js
 node_modules/ejs/jakefile.js
-
 node_modules/nodemailer/.prettierrc.js
 node_modules/nodemailer/CHANGELOG.md
 node_modules/nodemailer/CONTRIBUTING.md
