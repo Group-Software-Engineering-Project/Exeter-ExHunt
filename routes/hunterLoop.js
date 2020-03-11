@@ -98,5 +98,8 @@ function getRandomInt() {
   return Math.floor(Math.random() * Math.floor(22));
 }
 
+router.get('/ar',(req,res) => {
+  res.render('hunter/ar',{coords:currentTrack.challenges[x-1].Location});
+});
 
 module.exports = router;

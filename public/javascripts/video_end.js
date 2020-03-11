@@ -66,6 +66,7 @@ function confirm_coord(position) {
     var d = R * c;
     if (d>150) {
         alert("You are still "+d+" metres away")
+        document.getElementById("AR").style.display="inline-block";
     }
     else {
         window.location.href='/track_loop/loop';
