@@ -46,6 +46,7 @@ function moveOn(element,end) {
 }
 
 function confirm_coord(position) {
+    console.log('get')
     var lat1=position.coords.latitude;
     var lon1=position.coords.longitude;
 
@@ -75,6 +76,7 @@ function confirm_coord(position) {
 }
 
 function getLocation() {
+    
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(confirm_coord);
     } else { 

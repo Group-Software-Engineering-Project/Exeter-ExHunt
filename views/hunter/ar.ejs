@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/hunter_styles.css">
+        <script src="/javascripts/ar.js"></script>
         <script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
-        <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
-        
+        <script src='https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js'></script>
+        <script>
+            THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
+        </script>
     </head>
-    <body>
-        <a-scene vr-mode-ui="enabled: false" embedded arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
-            <a-marker preset='hiro' rotation="0 180 0" scale="0.15 0.15 0.15" gps-entity-place="longitude: 50.737381; latitude: -3.532611;"></a-marker>
-            <a-camera gps-camera rotation-reader></a-camera>
-        </a-scene>
+    <body style='margin: 0; display: inline-block;'>
+        
+        <div>
+            <a-scene
+                cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;'
+                raycaster="objects: [gps-entity-place];"
+                vr-mode-ui="enabled: false"
+                arjs='sourceType: webcam; debugUIEnabled: false;'id="ar">
+        
+                <a-camera gps-camera="minDistance: 40;" rotation-reader>
+                </a-camera>
+            </a-scene>
+        </div>
     </body>
 </html>
