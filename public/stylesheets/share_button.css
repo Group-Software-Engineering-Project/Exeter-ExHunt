@@ -1,7 +1,9 @@
+/*set body properties */
 body {
   background: #efefef;
 }
 
+/*set "wrapper" properties */
 .wrapper {
 position: relative;
 text-align: center;
@@ -47,6 +49,7 @@ transition: fill .3s ease-in;
 transition: all .3s ease-in;
 }
 
+/*set "twitsvg" when hovering over properties */
 .twitsvg:hover {
 position: absolute;
 background: transparent;
@@ -84,6 +87,7 @@ transform: rotateY(-45deg);
 transition: all .3s ease-in;
 }
 
+/*set "pint-all" when hovering over properties */
 .pint-all:hover {
 -webkit-transform: rotateY(0deg);
 -ms-transform: rotateY(0deg);
@@ -108,10 +112,12 @@ transition: fill .3s ease-in;
 fill: #CB2027;
 }
 
+/*set "face-all" properties */
 .face-all {
 position: relative;
 }
 
+/*set "face-all" when hovering over properties */
 .face-all:hover {
 cursor: pointer;
 }
@@ -156,10 +162,12 @@ transform: rotateY(0deg);
 cursor: pointer;
 }
 
+/*set "goog-all" properties */
 .goog-all {
 position: relative;
 }
 
+/*set "goog-all" when hovering over properties */
 .goog-all:hover {
 cursor: pointer;
 }
@@ -206,7 +214,7 @@ text-shadow: none;
 visibility: hidden;
 }
 
-/***********************reveal container for icons, set at 3em height for 2em icons**************************************************/
+/*reveal container for icons, set at 3em height for 2em icons*/
 .share-bar {
 transform-style: preserve-3d;
 postion: relative;

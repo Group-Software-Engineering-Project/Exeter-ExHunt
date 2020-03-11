@@ -1,8 +1,9 @@
+/*set "logoutbar" properties */
 .logoutbar{
     padding: 5px;
 }
 
-
+/*set "footerArea" properties */
 .footerArea{
     background-color: rgb(228, 228, 228);
     max-width: fit-content;
