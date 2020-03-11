@@ -81,8 +81,8 @@ router.get('/loop',function(req,res){
             User.updateOne({username:req.session.currentUser.username},{challenge_level:x}).then(result=>{
               x++;
               console.log("x is "+x);
-              console.log(currentTrack.challenges[x-1].Location);
-              res.render('hunter/hunter_loop',{files:file,end:false,question:questions.questions[currentquestion],coords:currentTrack.challenges[x-1].Location});
+              console.log(currentTrack.challenges[x].Location);
+              res.render('hunter/hunter_loop',{files:file,end:false,question:questions.questions[currentquestion],coords:currentTrack.challenges[x].Location});
             });
           }
       }

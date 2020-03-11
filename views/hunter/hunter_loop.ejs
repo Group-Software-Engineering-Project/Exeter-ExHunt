@@ -9,13 +9,6 @@
         
     </head>
     <!-- loop -->
-    <body style="text-align:center;background: url('/images/University_of_Exeter_hunters.jpg') no-repeat top fixed; background-size: cover;">
-        <div class="back_div">
-            <% if (isImage==true) { %>
-                <img src="track_loop/image/<%= file.filename %>">
-            <% } else { %>
-                <video controls autoplay style="margin-top: 5%;">
-                    <source src="track_loop/video/<%= file.filename %>">
     <body style="text-align:center;background: url('/images/University_of_Exeter_hunters.jpg') no-repeat top fixed; background-size: cover; align-items: center;">
             <div class="back_div" id="vid1">
                 <video controls autoplay id = "video1">
@@ -50,7 +43,7 @@
                     <a class="button" href="/feedback">Finish</a>
                 <% } %>
                 <a class="button" onclick="replay('video2')">Replay</a>
-                <a class="button" style="border-radius: 10px; display: none; width:100%;" href="/track_loop/ar" id="AR">Need Help?</a>
+                <a class="button" style="border-radius: 10px; display: none; width:100%;" href="" id="AR">Need Help?</a>
                 
             </div>
             

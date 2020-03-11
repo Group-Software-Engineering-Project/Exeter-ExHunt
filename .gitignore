@@ -2832,3 +2832,11 @@ node_modules/wordwrap/README.markdown
 node_modules/wordwrap/test/break.js
 node_modules/wordwrap/test/idleness.txt
 node_modules/wordwrap/test/wrap.js
+node_modules/.bin/cake.cmd
+node_modules/.bin/cake.ps1
+node_modules/.bin/coffee.cmd
+node_modules/.bin/coffee.ps1
+node_modules/.bin/handlebars.cmd
+node_modules/.bin/handlebars.ps1
+node_modules/.bin/uglifyjs.cmd
+node_modules/.bin/uglifyjs.ps1
