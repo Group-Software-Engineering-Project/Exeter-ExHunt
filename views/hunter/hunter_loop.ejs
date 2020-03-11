@@ -2,18 +2,48 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="/stylesheets/hunter_styles.css">
+        <script src="/javascripts/video_end.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        
     </head>
-
-    <body style="text-align:center;background: url('/images/University_of_Exeter_hunters.jpg') no-repeat top fixed; background-size: cover;">
-        <div class="back_div">
-            <% if (isImage==true) { %>
-                <img src="track_loop/image/<%= file.filename %>">
-            <% } else { %>
-                <video controls autoplay style="margin-top: 5%;">
-                    <source src="track_loop/video/<%= file.filename %>">
+    <body style="text-align:center;background: url('/images/University_of_Exeter_hunters.jpg') no-repeat top fixed; background-size: cover; align-items: center;">
+            <div class="back_div" id="vid1">
+                <video controls autoplay id = "video1">
+                    <source src="track_loop/video/<%= files[0].filename %>">
                 </video>
-            <% } %>
-        </div>
+                <a class="button" style="border-radius: 10px; width: 48%;" onclick="moveOn('vid1','<%=end %>')">Continue</a>
+                <a class="button" style="border-radius: 10px; width: 48%;" onclick="replay('video1')">Replay</a>
+            </div>
+            <div class="question_div" style="display: none;" id="questions">
+                <label style="width: 100%;">Can you Answer this Question?</label>
+                <label style="width: 100%;"><%=question.question %></label>
+                <% question.choice.forEach((choice)=> { %>
+                    <div style="width: 100%; display: inline-block;">
+                        <input type="radio" name="question" value="<%=choice.choice %>" onclick="showSelected(this.value)">
+                        <label for="<%=choice.choice %>"><%=choice.choice %></label>
+                    </div>
+                <% }) %>
+                <input type="hidden" id="hiddenanswer" value="<%=question.answer %>">
+                <p class="questionpara"" id="answer"></p>
+                <a class="button" style="margin-bottom: 1%; width:100%;" onclick="checkQuestion()">Submit</a>
+                <p class="questionpara" style="color: red; display: none;" id="wronganswer">This is the wrong answer</p>
+            </div>
+            <div class="back_div" style="display: none;" id="vid2">
+                <video controls id="video2">
+                    <source src="track_loop/video/<%= files[1].filename %>">
+                </video>   
+                <% if(end==false) { %>
+                    <a class="button" style="border-radius: 10px; width: 48%;" onclick="getLocation()">Check Location</a>
+                    <a class="questionpara"id="lat"style="display:none;"><%=coords[0] %></a>
+                    <a class="questionpara"id="lon"style="display:none;"><%=coords[1] %></a>
+                <% } else { %>
+                    <a class="button" href="/feedback">Finish</a>
+                <% } %>
+                <a class="button" onclick="replay('video2')">Replay</a>
+                <a class="button" style="border-radius: 10px; display: none; width:100%;" href="/track_loop/ar" id="AR">Need Help?</a>
+                
+            </div>
+            
     </body>
+
 </html>
