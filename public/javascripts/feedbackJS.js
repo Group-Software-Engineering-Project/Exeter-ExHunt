@@ -1,11 +1,13 @@
-// Initial Ratings
-const ratings = {
-  sony: 2.7,
-  samsung: 3.4,
-  vizio: 2.3,
-  panasonic: 3.6,
-  phillips: 4.1
-}
+//const Tracks = require('../models/tracks');
+//const mongoose = require('mongoose');
+
+const ratings = [];
+
+//const tracks = Tracks.find({},"name track_ranking").sort([['track_ranking', -1]]);
+//tracks.forEach(track => {
+  //ratings.push(track.track_ranking)
+//});
+
 
 // Total Stars
 const starsTotal = 5;

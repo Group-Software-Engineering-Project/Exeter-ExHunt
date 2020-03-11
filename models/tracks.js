@@ -1,7 +1,9 @@
+// routes/tracks.js
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 const Challenges = require('../models/challenges')
 
+// TrackSchema model
 const TrackSchema = new Schema({
     name:   {
         type: String,
@@ -16,7 +18,8 @@ const TrackSchema = new Schema({
         required: [true,'number of challenges is required']
     },
     challenges: [Challenges.challengeSchema], 
-    track_ranking: Number
+    track_ranking: Number,
+    number_of_plays: Number
 });
 
 module.exports = mongoose.model('Track',TrackSchema);

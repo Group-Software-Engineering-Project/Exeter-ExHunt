@@ -1,34 +1,167 @@
-.leaderboardStyling{
-    text-align: center;
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+/* set the thickness values of the margin area creating a blank space between both tables */
+.creatortable{
+  margin-bottom: 2%;
 }
 
-
-.tr, th, td{
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding: 10px;
-    margin: auto;
-    width: 0%;
-    text-align: center;
-    border-radius: 4px;
-    color: #000000;
-}
-
-.tr,td{
-    background-color:#6495ed;
-}
-
-.tr,th{
-    background-color:#496697;
-}
-
-table{
-    margin-top: 1%;
-    background-color: #000000;
-    border-radius: 6.5px;
+/* Specifie the height of the content area, padding area or border area */
+.creatortable, .huntertable{
     display: inline-block;
+    table-layout: fixed;
+    height: 38%;    
 }
 
-h1, h3{
+/* determine the type of box or boxes that are generated for an element.*/
+thead, tbody{display:block;}
+
+/* set the scroll functionality  */
+tbody{
+    overflow-y:scroll;
+    height:50em;
+    display:block;    
+}
+
+/* set title properties */
+.title{
+  font-size: 3.5vw;
+  color:black;
+}
+
+/* set text properties */
+body {
   text-align: center;
+  font-family: 'Montserrat',sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+
+/* set table title properties */
+div.table-title {
+  display: block;
+  margin: auto;
+  padding:5px;
+  width: 100%;
+}
+
+/* Table Styles */
+/* set table row properties */
+.table-fill {
+  background: #6495ed;
+  border-radius:3px;
+  border-collapse: collapse;
+  height: 320px;
+  margin: auto;
+  padding:5px;
+  width: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
+}
+ 
+/* set table lines properties */
+th {
+  color:#D5DDE5;
+  background:#1b1e24;
+  border-bottom:4px solid #9ea7af;
+  border-right: 1px solid #343a45;
+  font-size:23px;
+  font-weight: 100;
+  padding:24px;
+  text-align:left;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align:middle;
+}
+
+/* Define the radius of the top left outer border edge */
+th:first-child {
+  border-top-left-radius:3px;
+}
+ 
+/* Define the radius of the top right outer border edge */
+th:last-child {
+  border-top-right-radius:3px;
+  border-right:none;
+}
+
+/* set table row content */
+tr {
+  border-top: 1px solid #C1C3D1;
+  border-bottom: 1px solid #C1C3D1;
+  color:#000000;
+  font-size:16px;
+  font-weight:normal;
+  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+ 
+/* set border width, style and color */ 
+tr:first-child {
+  border-top:none;
+}
+
+/* set border width, style and color */
+tr:last-child {
+  border-bottom:none;
+}
+
+/* set most background properties at the same place in the style sheet */
+tr:nth-child(odd) td {
+  background:#93b5f5;
+}
+
+/* Define the radius of the bottom left outer border edge */
+tr:last-child td:first-child {
+  border-bottom-left-radius:3px;
+}
+ 
+/* Defines the radius of the bottom left outer border edge */
+tr:last-child td:last-child {
+  border-bottom-right-radius:3px;
+}
+
+/* set table cell data properties */
+td {
+  background:rgb(214, 247, 244);
+  padding:20px;
+  text-align:left;
+  vertical-align:middle;
+  font-weight:300;
+  font-size:18px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #C1C3D1;
+}
+
+/* set border width, style and color */
+td:last-child {
+  border-right: 0px;
+}
+
+/* Describe how inline contents of a block are horizontally aligned if the contents do not completely fill the line box.*/
+th.text-left {
+  text-align: left;
+}
+
+/* Describe how inline contents of a block are horizontally aligned if the contents do not completely fill the line box. */
+th.text-center {
+  text-align: center;
+}
+
+/* Describe how inline contents of a block are horizontally aligned if the contents do not completely fill the line box. */
+th.text-right {
+  text-align: right;
+}
+
+/* Describe how inline contents of a block are horizontally aligned if the contents do not completely fill the line box. */
+td.text-left {
+  text-align: left;
+}
+
+/* Describe how inline contents of a block are horizontally aligned if the contents do not completely fill the line box. */
+td.text-center {
+  text-align: center;
+}
+
+/* Describe how inline contents of a block are horizontally aligned if the contents do not completely fill the line box. */
+td.text-right {
+  text-align: right;
 }

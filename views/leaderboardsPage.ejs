@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+    <head>   
         <title>View Leaderboards</title>
+        <!-- Latest compiled CSS -->
         <link rel="stylesheet" type="text/css" href="/stylesheets/leaderboard_style.css">
         <link rel="stylesheet" href="stylesheets/dots_background.css"/>
-        <script type="text/javascript" src="/javascripts/dots_background.js"></script>
+        <% include partials/ReturnButton.ejs %>
     </head>
-
     <body>
-        <h1 class="title" style="font-size: 3vw;">View Leaderboards</h1>
+        <!-- Style page -->
+        <canvas style="z-index: -1"id="canvas1"></canvas>
+        <h1 class="title">View Leaderboards</h1>
         <div class="leaderboardStyling">
-            <table>
+            <!-- Populate table "creatortable" -->
+            <table class="creatortable">
                 <tr>
-                    <th>Rank</th><th>Track Name</th><th>Track Creator</th><th>Track Rating</th>
+                    <th>Rank</th><th>Name</th><th>Track Creator</th><th>Number of Plays</th><th>Average Rating</th>
                 </tr>
                 <% var i = 0 %>
                 <% tracks.forEach(function(track) { i++;%>
                 <tr>
                     <td><%= i %></td>
                     <td><%= track.name %></td>
-                    <td><%= track.creator %></td> 
+                    <td><%= track.creator %></td>
+                    <td><%= track.number_of_plays %></td>
                     <td><%= track.track_ranking %></td>
                 </tr>
             <% }) %>
         </table>
         <br>
-            <table>
+            <!-- Populate table "huntertable" -->
+            <table class="huntertable">
                 <tr>
                     <th>Rank</th><th>Hunter</th><th>Number of Tracks Completed</th>
                 </tr>
@@ -39,6 +44,7 @@
             <% }) %>
         </table>
     </body>
-    <canvas style="z-index: -1"id="canvas1"></canvas>
-    
+    <!-- Latest compiled JavaScript -->
+    <script type="text/javascript" src="/javascripts/dots_background.js"></script>
+    <% include partials/ReturnButton.ejs %>
 </html>

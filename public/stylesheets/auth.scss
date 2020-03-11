@@ -5,8 +5,10 @@ $input: #f9f9f9;
 
 * {box-sizing:border-box;}
 
+/*set body properties*/
 body {background:#eee;font-family:'Montserrat',sans-serif;}
 
+/*set "section" properties*/
 section {
   width:20em;
   min-height:14em;
@@ -17,6 +19,7 @@ section {
   box-shadow:#e4e4e4 1em 1em;
 }
 
+/*set "input" properties*/
 input {
   padding:1em;
   height:3em;
@@ -31,6 +34,7 @@ input {
   position:relative;
 }
 
+/*set specific "input" properties*/
 input:focus {
   outline:none;
   border-left:$highlight 3em solid;
@@ -38,6 +42,7 @@ input:focus {
   transition:100ms ease-out all;
 }
 
+/*set "input" and "label" properties*/
 input + label {
   position:relative;
   top:-2.9em;
@@ -47,10 +52,12 @@ input + label {
   color:#eee;
 }
 
+/*Specify how far an absolutely positioned box's left margin edge is offset to the right of the left edge of the box's 'containing block*/
 input:focus + label {
   left:-20em;
 }
 
+/*set "input" properties when "type=submit"*/
 input[type=submit] {
   border-left:0;
   width:8em;
@@ -63,10 +70,12 @@ input[type=submit] {
   border:2px solid $input;
 }
 
+/*set "input" properties when "type=submit" and element is being hovered over */
 input[type=submit]:hover {
   color:$highlight;
 }
 
+/*set "input" properties when "type=submit" and element is being focused on */
 input[type=submit]:focus {
   color:$highlight;
   border-color:$highlight;

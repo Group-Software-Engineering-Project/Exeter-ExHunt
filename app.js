@@ -6,10 +6,12 @@ const authRoutes = require("./routes/auth-routes");
 const hunterRoutes = require("./routes/hunters");
 const creatorRoutes = require("./routes/trackLanding");
 const challengeLoopRoutes = require('./routes/trackCreatorloop');
+const viewCreatedRoutes = require('./routes/trackViewer');
 const trackViewerRoutes = require('./routes/trackViewer');
 const hunterTrackLooper = require('./routes/hunterLoop');
 const leaderboardRoutes = require('./routes/leaderboards');
-const feedback = require('./routes/feedback')
+const resourcePageRoutes = require('./routes/resourcePage');
+const feedback = require('./routes/feedback');
 const createError = require('http-errors');
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
@@ -22,7 +24,7 @@ const bodyParser = require('body-parser');
 const User = require("./models/user");
 const app = express();
 
-// Mongoose configuration
+// Mongoose configurationrrs
 mongoose.connect("mongodb://localhost/exhunt");
 
 // view engine setup
@@ -83,10 +85,12 @@ app.use('/', authRoutes);
 app.use('/hunters', hunterRoutes); 
 app.use('/creator', creatorRoutes);
 app.use('/challenge_loop',challengeLoopRoutes);
+app.use('/view_track',viewCreatedRoutes);
 app.use('/view_track',trackViewerRoutes);
 app.use('/track_loop',hunterTrackLooper)
 app.use('/leaderboardsPage', leaderboardRoutes);
 app.use('/feedback', feedback);
+app.use('/resourcePage', resourcePageRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

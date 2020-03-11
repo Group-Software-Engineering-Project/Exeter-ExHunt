@@ -116,7 +116,6 @@ function animate() {
     xVal++;
     build();
 
-    //console.log("Prep: animate ==> requestAnimFrame");
     // request a new frame
     requestAnimFrame(function () {
         animate();
@@ -133,7 +132,6 @@ window.onload = function () {
 
 window.onresize = function () {
     'use strict';
-    console.log("resize");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     //buildArray();

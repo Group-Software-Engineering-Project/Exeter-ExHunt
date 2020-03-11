@@ -1,9 +1,11 @@
+    /*set body properties */
     body {
         height: 100%;
         margin: 0;
 
     }
     
+    /*set "button" properties */
     .button {
         background-color: #6495ed;
         padding-top:1.5%;
@@ -18,10 +20,12 @@
         min-height: 1.5vh;
     }
 
+    /*set "button" properties when hovering */
     .button:hover{
         background-color: #537cc7;
     }
 
+    /*set "challenge" properties */
     .challenge {
         width:100%;
         margin: 0;
@@ -29,7 +33,7 @@
         margin-top: 3%;
     }
 
-
+    /*set "title" properties */
     .title {
         color: white;
         padding-top: 1%;
@@ -37,7 +41,7 @@
     }
 
 
-
+    /*set "form-heading" properties */
     .form_heading {
         min-width: 100%;
         color: #6495ed;
@@ -47,15 +51,18 @@
         font-family:'Montserrat',sans-serif;
     }
 
+    /*set "upload" properties */
     .upload {
         margin-bottom: 4%;
     }
 
+    /*set "form_up" properties */
     .form_p {
         width:100%;
         font-family:'Montserrat',sans-serif;
     }
 
+    /*set "back_div" properties */
     .back_div {
         min-width:50%;
         max-width: 50%;
@@ -66,25 +73,28 @@
         border-radius: 10px;
     }
 
+    /*set "bd_view" properties */
     .bd_view {
-        padding-bottom: 40%;
+        padding-bottom: 1%;
         padding-top: 1%;
     }
 
+    /*set "v_upload" properties */
     .v_upload {
         margin-left: 40%;
     }
 
+    /*set "tracklist" properties */
     .tracklist {
         background-color:#6495ed;
         padding-top:1%;
         padding-bottom:1%;
-        cursor: pointer;
         text-decoration: none;
-        width: 95%;
+        width: 96%;
         color: azure;
         margin-bottom: 1%;
-        font-family: arial;
+        font-family:'Montserrat',sans-serif;
+        cursor: pointer;
         min-height: 1.5vh;
         border-radius: 25px;
         display: inline-block;

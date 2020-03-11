@@ -3,6 +3,9 @@
     <head>
         <title>View Created Tracks</title>
         <link rel="stylesheet" type="text/css" href="/stylesheets/creator_style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     </head>
 
     <body style="text-align:center;background: url('/images/exerterbanner.jpg') no-repeat top fixed; background-size: cover;">
@@ -10,14 +13,17 @@
         <div class="back_div bd_view">
             <% tracks.forEach(function(track) { %>
             <div class="tracklist">
-                <p>Name: <%= track.name %> Number of challenges: <%= track.number_of_challenges %></p>
+                <p><h4>Track Name: <%= track.name %></h4> Creator: <%= track.creator %><br> Number of challenges: <%= track.number_of_challenges %><br> Ranking: <%= track.track_ranking %> <br> Number of plays: <%= track.number_of_plays %> </p>
+                <form action="/view_track/<%= track._id %>/delete" method="POST">
+                    <button class="btn btn-danger" type="submit">Delete Product</button>
+                </form>
             </div>
         <% }) %>
         </div>
-        <div style="min-width:65%; display: inline-block;">
+        <div style="width:50%; display: inline-block;">
             <a class="button challenge" href="/creator" style="border-radius: 25px;">Return to Home</a>
         </div>
-        
     </body>
     <% include ../partials/logoutbar.ejs %>
 </html>
+
