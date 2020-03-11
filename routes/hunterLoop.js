@@ -1,32 +1,15 @@
-// routes/hunterLoop.js
 var express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
-
-// require GridFs for video chunking
 const GridFsStorage = require('multer-gridfs-storage');
 const grid = require('gridfs-stream');
-
-// Challenges model
 const Challenges = require('../models/challenges');
-
-// Tracks model
 const Tracks = require('../models/tracks');
-const User = require('../models/user');
-const fs = require('fs');
 
 var currentTrack;
-var x;
-var questions;
-var currentquestion=0;
+var x = 0;
 
-fs.readFile('questions.json', (err,data) => {
-  questions = JSON.parse(data);
-  console.log(questions.questions.length);
-});
-
-//database connection
-const conn = mongoose.createConnection('mongodb://localhost/exhunt');
+const conn = mongoose.createConnection('mongodb://LucasMartinCalderon:LucasMartinCalderon123@ds046677.mlab.com:46677/exhunt');
 
 let gfs;
 
@@ -35,61 +18,56 @@ conn.once('open', () => {
     gfs.collection('uploads');
 });
 
-// file import check
+
 router.get('/',function(req,res){
-  User.findOne({username:req.session.currentUser.username},function(err,user){
-    if(user.track_name==req.session.hunter_track.name){
-      x=user.challenge_level;
-      console.log("continue");
-    }
-    else {
-      x=0;
-    }
-    res.redirect('/track_loop/loop');
-  });
-});
-
-
-router.get('/loop',function(req,res){
+    x=0;
+    //console.log(req.session)
     currentTrack = req.session.hunter_track;
-      User.updateOne({username:req.session.currentUser.username},{track_name:currentTrack.name}).then(result=>{
-        console.log(result);
-      });
-      gfs.files.find({_id: { $in : [mongoose.Types.ObjectId(currentTrack.challenges[x].Vid1ID),mongoose.Types.ObjectId(currentTrack.challenges[x].Vid2ID)]}}).toArray((err,file)=>{
+    //console.log(typeof currentTrack.challenges[x].Vid1ID);
+    gfs.files.findOne({_id:mongoose.Types.ObjectId(currentTrack.challenges[x].Vid1ID)},(err, file) => {
         // Check if files
         if (!file || file.length === 0) {
-          res.render('hunter/hunter_loop',{})
-
+            console.log("FUCK");
+            res.render('hunter/hunter_loop');
         }
         else {
-          if (x==currentTrack.number_of_challenges) {
-            User.updateOne({username:req.session.currentUser.username},{track_name:"",challenge_level:0}).then(result=>{
-              res.render('hunter/hunter_loop',{files:file,end:true,question:questions.questions[0]});
-            });
-            
-          }
-          else {
-            while(true){
-              var random = getRandomInt();
-              if (random!=currentquestion){
-                currentquestion=random;
-                break;
-              }
+            console.log(file);
+            if (file.contentType == 'image/jpeg' || file.contentType === 'image/png') {
+                res.render('hunter/hunter_loop',{file:file,isImage:true});
+            }
+            else {
+                res.render('hunter/hunter_loop',{file:file,isImage:false});
             }
             
-            //console.log(file);
-            User.updateOne({username:req.session.currentUser.username},{challenge_level:x}).then(result=>{
-              x++;
-              console.log("x is "+x);
-              console.log(currentTrack.challenges[x-1].Location);
-              res.render('hunter/hunter_loop',{files:file,end:false,question:questions.questions[currentquestion],coords:currentTrack.challenges[x-1].Location});
-            });
-          }
-      }
-    });
+        }
+      });
 });
 
-router.get('/track_loop/video/:filename', (req, res) => {
+router.get('/image/:filename', (req, res) => {
+    console.log("image");
+    gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+      // Check if the input is a valid image or not
+      if (!file || file.length === 0) {
+        return res.status(404).json({
+          err: 'No file exists'
+        });
+      }
+  
+      // If the file exists then check whether it is an image
+      if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
+        // Read output to browser
+        const readstream = gfs.createReadStream(file.filename);
+        readstream.pipe(res);
+      } else {
+        res.status(404).json({
+          err: 'Not an image'
+        });
+      }
+    });
+  });
+
+router.get('/video/:filename', (req, res) => {
+    console.log("vid");
     gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
       // Check if file
       if (!file || file.length === 0) {
@@ -102,13 +80,5 @@ router.get('/track_loop/video/:filename', (req, res) => {
       return readstream.pipe(res);
     });
   });
-
-function getRandomInt() {
-  return Math.floor(Math.random() * Math.floor(22));
-}
-
-router.get('/ar',(req,res) => {
-  res.render('hunter/ar',{coords:currentTrack.challenges[x-1].Location});
-});
 
 module.exports = router;

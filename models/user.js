@@ -9,7 +9,6 @@ const userSchema = new Schema({
   role: String, 
   email_address: String, 
   personal_tutor: String, 
-  track_name: String,
   challenge_level: Number, 
   track_hunter_ranking: Number, 
 }, {

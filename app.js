@@ -1,11 +1,6 @@
-// routes/app.js
 const passport = require('passport');
 const LocalStrategy = require("passport-local").Strategy;
-
-// Mongoose requirement
 const mongoose = require('mongoose');
-
-// routes
 const usersRouter = require('./routes/users');
 const authRoutes = require("./routes/auth-routes");
 const hunterRoutes = require("./routes/hunters");
@@ -17,28 +12,20 @@ const hunterTrackLooper = require('./routes/hunterLoop');
 const leaderboardRoutes = require('./routes/leaderboards');
 const resourcePageRoutes = require('./routes/resourcePage');
 const feedback = require('./routes/feedback');
-
-// error requirement
 const createError = require('http-errors');
-
-// express requirement
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const path = require('path');
-
-// session save requirement
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require("express-session");
 const flash = require("connect-flash");
 const bodyParser = require('body-parser');
-
-// User model
 const User = require("./models/user");
 const app = express();
 
 // Mongoose configurationrrs
-mongoose.connect("mongodb://localhost/exhunt");
+mongoose.connect("mongodb://LucasMartinCalderon:LucasMartinCalderon123@ds046677.mlab.com:46677/exhunt");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -49,7 +36,6 @@ app.set('layout', 'layouts/main-layout');
 app.use(bodyParser.json({ type: 'application/*+json' }));
 app.use(flash());
 
-// create session for user
 app.use(session({
   secret: "our-passport-local-strategy-app",
   resave: true,
@@ -68,7 +54,6 @@ passport.deserializeUser((id, done) => {
 // parse some custom thing into a Buffer
 app.use(session({ resave: true, secret: '123456', saveUninitialized: true }));
 
-// error notification
 passport.use(new LocalStrategy(
   function(username, password, done) {
     User.findOne({ username: username }, function(err, user) {
@@ -87,7 +72,6 @@ passport.use(new LocalStrategy(
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
-// routes authRoutes
 app.use('/', authRoutes);
 app.use(logger('dev'));
 app.use(express.json());
@@ -96,7 +80,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressLayouts);
 
-// define all necessary routes
 app.use('/users', usersRouter);
 app.use('/', authRoutes);
 app.use('/hunters', hunterRoutes); 
