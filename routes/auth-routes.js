@@ -52,7 +52,7 @@ authRoutes.post("/login", urlencodedParser, (req, res, next) => {
       } else {
         if (bcrypt.compareSync(password, user.password)) {
           req.session.currentUser = user;
-          const address = (user.role == "Hunter") ? "/hunters" : "/creator"
+          const address = (user.role == "Hunter") ? "/hunters" : "/creator";
           res.redirect(address);
         } else {
           res.render("auth/login", {
@@ -84,11 +84,9 @@ authRoutes.post("/signup", urlencodedParser, (req, res, next) => {
       return;
     }
 
-    //encrypt paswword 
     var salt = bcrypt.genSaltSync(bcryptSalt);
     var hashPass = bcrypt.hashSync(password, salt);
 
-    //new user model
     const newUser = new User({
       username,
       password: hashPass, 
@@ -96,11 +94,9 @@ authRoutes.post("/signup", urlencodedParser, (req, res, next) => {
       email_address, 
       personal_tutor, 
       challenge_level, 
-      track_hunter_ranking,
-      track_name: ""
+      track_hunter_ranking
     });
 
-    //new user email signup
     newUser.save((err) => {
       if (err) {
         res.render("auth/signup", { message: "Something went wrong" });

@@ -1,13 +1,9 @@
-// routes/trackviewer.js
 const express = require('express');
 const trackViewer = express.Router();
 const passport = require('passport');
 const mongoose = require('mongoose');
-
-// Tracks model
 const Tracks = require('../models/tracks');
 
-//view track info
 trackViewer.get('/', function(req, res, next) {
     if (req.session.currentUser == undefined || req.session.currentUser.role == 'Hunter') {
         res.redirect('/login')
@@ -20,7 +16,6 @@ trackViewer.get('/', function(req, res, next) {
     }
 });
 
-// delete track
 trackViewer.post('/:id/delete', (req, res, next) => {
     const id = req.params.id;
     console.log(id);

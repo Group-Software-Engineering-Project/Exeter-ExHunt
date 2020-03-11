@@ -9,7 +9,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.6/prefixfree.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js"></script>
 
-<!-- define page display -->
+
 <% if (typeof(errorMessage) !== "undefined") { %>
   <div class="error-message"><%= errorMessage %></div>
 <% } %>
@@ -22,7 +22,6 @@
   <br>
 </div>
 
-<!-- login information input -->
 <section>
   <form action="/login" method="POST" id="form-container" class="login">
     <input type="text" name="username" title="username" placeholder="Enter your username">
