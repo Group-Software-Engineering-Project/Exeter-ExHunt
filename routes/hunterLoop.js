@@ -1,9 +1,16 @@
+// routes/hunterLoop.js
 var express = require('express');
 var router = express.Router();
 const mongoose = require('mongoose');
+
+// require GridFs for video chunking
 const GridFsStorage = require('multer-gridfs-storage');
 const grid = require('gridfs-stream');
+
+// Challenges model
 const Challenges = require('../models/challenges');
+
+// Tracks model
 const Tracks = require('../models/tracks');
 const User = require('../models/user');
 const fs = require('fs');
@@ -18,6 +25,7 @@ fs.readFile('questions.json', (err,data) => {
   console.log(questions.questions.length);
 });
 
+//database connection
 const conn = mongoose.createConnection('mongodb://localhost/exhunt');
 
 let gfs;
@@ -27,6 +35,7 @@ conn.once('open', () => {
     gfs.collection('uploads');
 });
 
+// file import check
 router.get('/',function(req,res){
   User.findOne({username:req.session.currentUser.username},function(err,user){
     if(user.track_name==req.session.hunter_track.name){
