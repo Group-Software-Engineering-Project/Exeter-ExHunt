@@ -28,16 +28,23 @@ window.onload = () => {
                     const longitude = place.location.lng;
 
                     // add place name
-                    const text = document.createElement('a-marker');
+                    const text = document.createElement('a-image');
                     text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     text.setAttribute('title', place.name);
                     text.setAttribute('scale', '20 20 20');
+                    text.setAttribute('src','../images/exerterbanner.jpg')
+                    console.log('set');
+                    
+                    text.addEventListener('loaded',()=>window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')))
 
                     text.addEventListener('click', () => {
-                        console.log('clicked')
-                    });
+                        console.log('clicked');
 
                     scene.appendChild(text);
+
+                    });
+                    
+                    
             })
     },
         (err) => console.error('Error in retrieving position', err),
