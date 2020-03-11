@@ -4,7 +4,6 @@
 const ratings = [];
 
 //const tracks = Tracks.find({},"name track_ranking").sort([['track_ranking', -1]]);
-//console.log(tracks);
 //tracks.forEach(track => {
   //ratings.push(track.track_ranking)
 //});
