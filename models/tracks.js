@@ -1,7 +1,9 @@
+// routes/tracks.js
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 const Challenges = require('../models/challenges')
 
+// TrackSchema model
 const TrackSchema = new Schema({
     name:   {
         type: String,

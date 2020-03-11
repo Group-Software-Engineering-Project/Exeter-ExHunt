@@ -1,3 +1,4 @@
+/*set "canvas" properties */
 canvas {
   position:absolute;
   top:0;
@@ -6,7 +7,8 @@ canvas {
   height:100%;
   z-index:-1;
   }
-  
+ 
+/*set body properties */
 html,body{
   margin: 0;
   padding: 0;
