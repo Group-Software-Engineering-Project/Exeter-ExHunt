@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 // Track model
 const Tracks = require('../models/tracks');
 const cookieSession = require('cookie-session');
+const User = require('../models/user');
 
 
 feedback_router.get('/', function(req, res, next) {
@@ -36,8 +37,18 @@ feedback_router.post('/update',urlencodedParser,(req,res)=>{
       if(result.ok != 1) {
         res.redirect('/feedback');
       } else {
-        res.redirect('/hunters');
-        alert("Congrats, your rating has been added to the database!");
+        User.findOne({username:req.session.currentUser.username},(err, file)=> {
+          var new_ranking = file.track_hunter_ranking+1;
+          User.updateOne({username:req.session.currentUser.username},{track_hunter_ranking:new_ranking}).then(result =>{
+            if(result.ok != 1) {
+              res.redirect('/feedback');
+            }
+            else {
+              res.redirect('/hunters');
+              alert("Congrats, your rating has been added to the database!");
+            }
+          })
+        });
       }
   });
   });
