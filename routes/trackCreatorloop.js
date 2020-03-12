@@ -8,18 +8,19 @@ const Tracks = require('../models/tracks');
 
 
 var multer = require('multer');
-var fs = require('fs');
 
 
 const conn = mongoose.createConnection('mongodb://LucasMartinCalderon:LucasMartinCalderon123@ds046677.mlab.com:46677/exhunt');
 
 let gfs;
 
+// connect to database for gridfs
 conn.once('open', () => {
     gfs = grid(conn.db,mongoose.mongo);
     gfs.collection('uploads');
 });
 
+// storage of files by gridfs
 const storage = new GridFsStorage({
     url: 'mongodb://LucasMartinCalderon:LucasMartinCalderon123@ds046677.mlab.com:46677/exhunt',
     file: (req,file) => {
@@ -40,6 +41,8 @@ var username;
 var track;
 var number_of_challenges = 1000;
 var x = 0;
+
+// renders intial track creation setup
 trackCreator.get('/', function(req, res) {
     x=0;
     number_of_challenges=1000
@@ -53,7 +56,7 @@ trackCreator.get('/', function(req, res) {
     
 });
 
-
+// main track creation loop
 trackCreator.post('/upload',upload.any(),function(req,res){
     if (x ==0) {
         number_of_challenges = req.body.num_challenges;
@@ -61,6 +64,7 @@ trackCreator.post('/upload',upload.any(),function(req,res){
         console.log(number_of_challenges);
         console.log(tName);
         console.log(req.files);
+        // checks if track name is already taken
         Tracks.findOne( {name:tName} , "name", (err, Name) => {
             if (Name !== null) {
                 console.log(Name);
@@ -75,11 +79,13 @@ trackCreator.post('/upload',upload.any(),function(req,res){
             }
         });
     }
+    // display outro creation page
     else if (x==number_of_challenges-1) {
         track = createChallenge(track,track._id,req.files[0].id,req.files[1].id,[req.body.x,req.body.y]);
         x++;
         res.render('creator/challenge_loop.ejs', {title: 'challenge_loop',heading:'Last Location',x:x,num_challenges:number_of_challenges, username: username,message:""});
     }
+    // save the track at the end of creation, and render page to return to creator start page
     else if (x==number_of_challenges) {
         track = createChallenge(track,track._id,req.files[0].id,req.files[1].id,[req.body.x,req.body.y]);
         track.save();
@@ -91,6 +97,7 @@ trackCreator.post('/upload',upload.any(),function(req,res){
           }
     }
     else {
+        // render challenge creation pages
         track = createChallenge(track,track._id,req.files[0].id,req.files[1].id,[req.body.x,req.body.y]);
         x++;
         res.render('creator/challenge_loop.ejs', {title: 'challenge_loop',heading:`Location ${x}`,x:x,num_challenges:number_of_challenges, username: username,message:""});
@@ -98,6 +105,7 @@ trackCreator.post('/upload',upload.any(),function(req,res){
     
 });
 
+// create track document to be saved at the end of creation
 function createTrack(name,creator,num_challenges) {
     var track = new Tracks({
         name: name,
@@ -110,6 +118,7 @@ function createTrack(name,creator,num_challenges) {
     return track;
 };
 
+// create challenge object from schema, and push to the created track document
 function createChallenge(Track,TrackID, Vid1, Vid2,locations) {
     var challenge = new Challenges.challengeModel({
         TrackID: TrackID,

@@ -16,6 +16,7 @@ var fromar = false;
 
 const conn = mongoose.createConnection('mongodb://LucasMartinCalderon:LucasMartinCalderon123@ds046677.mlab.com:46677/exhunt');
 
+// read the JSON file containing all questions
 fs.readFile('questions.json', (err, data) => {
   questions = JSON.parse(data);
   console.log(questions.questions.length);
@@ -24,12 +25,13 @@ fs.readFile('questions.json', (err, data) => {
 
 let gfs;
 
+// connect to the mongoDB for gridfs
 conn.once('open', () => {
   gfs = grid(conn.db, mongoose.mongo);
   gfs.collection('uploads');
 });
 
-
+// check if user has a saved location/challenge for this track
 router.get('/', function (req, res) {
   User.findOne({ username: req.session.currentUser.username }, function (err, user) {
     if (user.track_name == req.session.hunter_track.name) {
@@ -45,9 +47,10 @@ router.get('/', function (req, res) {
 
 
 
-
+// main loop
 router.get('/loop', function (req, res) {
   currentTrack = req.session.hunter_track;
+  // check if the app is being redirected from the AR page
   if (fromar == true) {
     gfs.files.findOne({ _id: mongoose.Types.ObjectId(currentTrack.challenges[x - 1].Vid2ID) }, (err, file) => {
       if (!file || file.length === 0) {
@@ -62,16 +65,20 @@ router.get('/loop', function (req, res) {
     })
   }
   else {
+    // set the user's saved track as the current track
     User.updateOne({ username: req.session.currentUser.username }, { track_name: currentTrack.name }).then(result => {
       console.log(result);
     });
+    // find the videos in the database
     gfs.files.find({ _id: { $in: [mongoose.Types.ObjectId(currentTrack.challenges[x].Vid1ID), mongoose.Types.ObjectId(currentTrack.challenges[x].Vid2ID)] } }).toArray((err, file) => {
       // Check if files
       if (!file || file.length === 0) {
         res.render('hunter/hunter_loop', {})
       }
       else {
+        // displays a slightly different page when the user reaches the end of the track
         if (x == currentTrack.number_of_challenges) {
+          // resets the user's saved track and position
           User.updateOne({ username: req.session.currentUser.username }, { track_name: "", challenge_level: 0 }).then(result => {
             res.render('hunter/hunter_loop', { files: file, end: true, question: questions.questions[0], fromAR: false });
           });
@@ -79,6 +86,7 @@ router.get('/loop', function (req, res) {
         }
         else {
           while (true) {
+            // get a random question which is not the same as the previous one
             var random = getRandomInt();
             if (random != currentquestion) {
               currentquestion = random;
@@ -86,7 +94,7 @@ router.get('/loop', function (req, res) {
             }
           }
 
-          //console.log(file);
+          // save the user's location in the current track
           User.updateOne({ username: req.session.currentUser.username }, { challenge_level: x }).then(result => {
             x++;
             console.log(file[0].filename);
@@ -101,6 +109,7 @@ router.get('/loop', function (req, res) {
 
 });
 
+// route to display video1
 router.get('/track_loop/video1/:filename', (req, res) => {
   gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
     // Check if file
@@ -115,6 +124,7 @@ router.get('/track_loop/video1/:filename', (req, res) => {
   });
 });
 
+// route to display video2
 router.get('/track_loop/video2/:filename', (req, res) => {
   gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
     // Check if file
@@ -129,10 +139,12 @@ router.get('/track_loop/video2/:filename', (req, res) => {
   });
 });
 
+// routes to the AR page
 router.get('/ar', (req, res) => {
   res.render('hunter/ar');
 })
 
+//route from the AR page, ensures the user is returned to the correct part in the loop, so they don't need to answer the challenge question again
 router.get('/back', (req, res) => {
   fromar = true;
   console.log(x)

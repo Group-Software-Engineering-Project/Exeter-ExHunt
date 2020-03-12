@@ -236,6 +236,31 @@ In our app, we use the EJS files to display all of the content, rendered as HTML
 <% include ../partials/LeaderboardButton.ejs %>
 <% include ../partials/resourcesPageButton.ejs %>`
 
+# A Track Creator User Manual
+
+As a creator, you have two choices when you sign in.
+
+- View Your Current Tracks
+- Create a new Track
+
+**Create your first Track**
+
+Lets go through making your first track. When selecting the track creation option, you will be directed to a track setup screen. Here, you will input your new track's name, the number of challenges it will have, an Track Introduction Video (A Video to introduce the user to your track), and a video where you will tell the user the first hint to find your first location.
+
+You will then be allowed to flesh out each of your challenges. This includes giving a Welcome Video for the challenge location (A Video to welcome and congratulate the user on finding the location. You could also include a couple of facts about the building/location they are at.), the hint to the next location, and the coordinates of this current challenge location. An easy way of getting these, are to use google maps, and simply clicking on the place where your location is, giving you the location's latitude and longitude coordinates. Don't worry on it being too accurate, the user only has to be within 150 metres to proceed to the next challenge!
+
+Your final challenge will also be a little different. Instead of uploading a video giving the user a clue of the next location, you should include an outro video (A video to conclude your track). The rest of the challenge upload will be the same, however.
+
+And you're done! If you follow these steps, you'll be able to make your own track for the Hunters to play.
+
+
+**View Tracks**
+
+If you wanted to take a look at all of the tracks you've made, head over to the Track Viewer through the starting page when you login as a creator. Here you'll be able to see all the tracks you've created, as well as some statistics, which include the average rating that your track has been given, and the number of times users have played them.
+
+Don't like the layout of a track? Getting bad ratings? Or is it simply just out of date? No worries! Just press the delete button, and the track, challenges and videos will be deleted from the app.
+
+
 # How to install the application
 
 Before attempting to run this application, make sure to install the latest version of node.js and the node package manager(npm) is up to date. If you have problems running the application, try installing earlier versions of node or npm.

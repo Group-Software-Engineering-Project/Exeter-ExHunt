@@ -2,8 +2,9 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 
-/* GET home page. */
+
 router.get('/', function(req, res, next) {
+  // check if logged in/is a creator
   if (req.session.currentUser == undefined || req.session.currentUser.role == 'Hunter') {
     res.redirect('/login')
   }

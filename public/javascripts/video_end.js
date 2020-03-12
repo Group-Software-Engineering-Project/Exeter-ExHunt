@@ -5,6 +5,8 @@ if (typeof(Number.prototype.toRadians) === "undefined") {
     }
   }
 
+
+// check the answer of the question, displays hint if correct
 function checkQuestion() {
     if ($("#answer").text().valueOf() == document.getElementById("hiddenanswer").value.valueOf()) {
         document.getElementById("questions").style.display="none";
@@ -16,23 +18,27 @@ function checkQuestion() {
     }
 }
 
-
+// change divs/elements from display:none to display:inline-block
 function display(element) {
     element.style.display="inline-block";
 }
 
+// function to show the answer currently selected in another <p> tag underneath the radiobutton inputs
 function showSelected(answer) {
     document.getElementById("answer").innerHTML = answer;
     document.getElementById("wronganswer").style.display="none";
     console.log(answer);
   }
 
+
+// sets the videos to the start and plays them
 function replay(id) {
     var vid = document.getElementById(id);
     vid.currentTime=0;
     vid.play();
 }
 
+// skips the current introduction/welcome video and displays the questions
 function moveOn(element,end) {
     document.getElementById(element).style.display = "none";
     document.getElementById("video1").pause();
@@ -46,6 +52,8 @@ function moveOn(element,end) {
         }
 }
 
+// check the user coordinates against the challenge coordinates using Haversine Formula
+// for calculating distance between two sets of coordinates
 function confirm_coord(position) {
     console.log('get')
     var lat1=position.coords.latitude;
@@ -66,6 +74,8 @@ function confirm_coord(position) {
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
     var d = R * c;
+
+    // if the distance between the user and the challenge location is less than 150 metres, the user can then move on to the next challenge
     if (d>150) {
         alert("You are still "+d+" metres away")
         document.getElementById("AR").style.display="inline-block";
@@ -76,6 +86,7 @@ function confirm_coord(position) {
 
 }
 
+// get the coordinate values of the user's current position
 function getLocation() {
     
     if (navigator.geolocation) {
