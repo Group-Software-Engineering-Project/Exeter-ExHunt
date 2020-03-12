@@ -6,21 +6,13 @@
         <link rel="stylesheet" type="text/css" href="/stylesheets/hunter_styles.css">
         <script src="/javascripts/video_end.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-        <script src='https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js'></script>
-        <script>
-            THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
-        </script>
-        <script src="../javascripts/gps-entity-place.js"></script>
-        <script src="../javascripts/gps-camera-debug.js"></script>
-        <script src="../javascripts/gps-camera.js"></script>
-        <link rel="stylesheet" href="../stylesheets/index.css">
-        <script src="../javascripts/places.js"></script>
     </head>
+
     <body style="text-align:center;background: url('/images/University_of_Exeter_hunters.jpg') no-repeat top fixed; background-size: cover; align-items: center;">
+        <% if(fromAR==false) { %>
             <div class="back_div" id="vid1">
                 <video controls autoplay id = "video1">
-                    <source src="track_loop/video/<%= files[0].filename %>">
+                    <source src="track_loop/video1/<%= files[0].filename %>">
                 </video>
                 <a class="button" style="border-radius: 10px; width: 48%;" onclick="moveOn('vid1','<%=end %>')">Continue</a>
                 <a class="button" style="border-radius: 10px; width: 48%;" onclick="replay('video1')">Replay</a>
@@ -41,7 +33,7 @@
             </div>
             <div class="back_div" style="display: none;" id="vid2">
                 <video controls id="video2">
-                    <source src="track_loop/video/<%= files[1].filename %>">
+                    <source src="track_loop/video2/<%= files[1].filename %>">
                 </video>   
                 <% if(end==false) { %>
                     <a class="button" style="border-radius: 10px; width: 48%;" onclick="getLocation()">Check Location</a>
@@ -51,10 +43,20 @@
                     <a class="button" href="/feedback">Finish</a>
                 <% } %>
                 <a class="button" onclick="replay('video2')">Replay</a>
-                <a class="button" style="border-radius: 10px; display: none; width:100%;" href="/track_loop/ar" id="AR">Need Help?</a>
-                
+                <a class="button" style="border-radius: 10px; display: none; width:100%;" href="/track_loop/ar" id="AR">Need Help?</a> 
             </div>
-            
+        <% } else { %>
+            <div class="back_div" id="vid2">
+                <video controls id="video2">
+                    <source src="track_loop/video2/<%= files.filename %>">
+                </video>   
+                <a class="button" style="border-radius: 10px; width: 48%;" onclick="getLocation()">Check Location</a>
+                <a class="questionpara"id="lat"style="display:none;"><%=coords[0] %></a>
+                <a class="questionpara"id="lon"style="display:none;"><%=coords[1] %></a>
+                <a class="button" onclick="replay('video2')">Replay</a>
+                <a class="button" style="border-radius: 10px; display: none; width:100%;" href="/track_loop/ar" id="AR">Need Help?</a> 
+            </div>
+        <% } %>
     </body>
 
 </html>

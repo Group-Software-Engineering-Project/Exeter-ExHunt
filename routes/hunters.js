@@ -14,6 +14,7 @@ router.get('/', function(req, res, next) {
 router.post('/choose_track',urlencodedParser, function(req,res){
   Tracks.find({name:req.body.track_name},function(err,track){
     req.session.hunter_track = track[0];
+    req.session.progress = "start";
     res.redirect('/track_loop');
   });
 
