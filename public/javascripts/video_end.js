@@ -35,6 +35,7 @@ function replay(id) {
 
 function moveOn(element,end) {
     document.getElementById(element).style.display = "none";
+    document.getElementById("video1").pause();
         if (end=='false') {
             var questions = document.getElementById("questions");
             display(questions);
