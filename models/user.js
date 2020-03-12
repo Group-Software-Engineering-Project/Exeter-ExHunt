@@ -10,7 +10,8 @@ const userSchema = new Schema({
   email_address: String, 
   personal_tutor: String, 
   challenge_level: Number, 
-  track_hunter_ranking: Number, 
+  track_hunter_ranking: Number,
+  track_name: String,
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });

@@ -6,8 +6,8 @@ const loadPlaces = function(coords) {
       {
           name: "Your place name",
           location: {
-              lat: 0, // add here latitude if using static data
-              lng: 0, // add here longitude if using static data
+              lat: 50.737344, // add here latitude if using static data
+              lng: -3.532559, // add here longitude if using static data
           }
       },
   ];
@@ -22,7 +22,7 @@ const loadPlaces = function(coords) {
 // getting places from REST APIs
 function loadPlaceFromAPIs(position) {
   const params = {
-      radius: 1000,    // search places not farther than this value (in meters)
+      radius: 350,    // search places not farther than this value (in meters)
       clientId: 'HZIJGI4COHQ4AI45QXKCDFJWFJ1SFHYDFCCWKPIJDWHLVQVZ',
       clientSecret: 'GYRKWWJMO2WK3KIRWBXIN5FQAWXTVFIK2QM4VQWNQ4TRAKWH',
       version: '20300101',    // foursquare versioning, required but unuseful for this demo

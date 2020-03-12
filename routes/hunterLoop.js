@@ -6,11 +6,20 @@ const grid = require('gridfs-stream');
 const Challenges = require('../models/challenges');
 const Tracks = require('../models/tracks');
 var User = require('../models/user');
+const fs = require('fs');
 
 var currentTrack;
 var x = 0;
+var questions;
+var currentquestion=0;
 
 const conn = mongoose.createConnection('mongodb://LucasMartinCalderon:LucasMartinCalderon123@ds046677.mlab.com:46677/exhunt');
+
+fs.readFile('questions.json', (err,data) => {
+  questions = JSON.parse(data);
+  console.log(questions.questions.length);
+});
+
 
 let gfs;
 
@@ -21,36 +30,59 @@ conn.once('open', () => {
 
 
 router.get('/',function(req,res){
-    x=0;
-    //console.log(req.session)
-    currentTrack = req.session.hunter_track;
-    //console.log(typeof currentTrack.challenges[x].Vid1ID);
-    gfs.files.findOne({_id:mongoose.Types.ObjectId(currentTrack.challenges[x].Vid1ID)},(err, file) => {
-        // Check if files
-        if (!file || file.length === 0) {
-            res.render('hunter/hunter_loop');
+  User.findOne({username:req.session.currentUser.username},function(err,user){
+    if(user.track_name==req.session.hunter_track.name){
+      x=user.challenge_level;
+      console.log("continue");
+    }
+    else {
+      x=0;
+    }
+    res.redirect('/track_loop/loop');
+  });
+});
+
+
+router.get('/loop',function(req,res){
+  currentTrack = req.session.hunter_track;
+    User.updateOne({username:req.session.currentUser.username},{track_name:currentTrack.name}).then(result=>{
+      console.log(result);
+    });
+    gfs.files.find({_id: { $in : [mongoose.Types.ObjectId(currentTrack.challenges[x].Vid1ID),mongoose.Types.ObjectId(currentTrack.challenges[x].Vid2ID)]}}).toArray((err,file)=>{
+      // Check if files
+      if (!file || file.length === 0) {
+        res.render('hunter/hunter_loop',{})
+
+      }
+      else {
+        if (x==currentTrack.number_of_challenges) {
+          User.updateOne({username:req.session.currentUser.username},{track_name:"",challenge_level:0}).then(result=>{
+            res.render('hunter/hunter_loop',{files:file,end:true,question:questions.questions[0]});
+          });
+          
         }
         else {
-            console.log(file);
-            if (file.contentType == 'image/jpeg' || file.contentType === 'image/png') {
-                res.render('hunter/hunter_loop',{file:file,isImage:true});
+          while(true){
+            var random = getRandomInt();
+            if (random!=currentquestion){
+              currentquestion=random;
+              break;
             }
-            else {
-                res.render('hunter/hunter_loop',{file:file,isImage:false});
-            }
-            
-            //console.log(file);
-            User.updateOne({username:req.session.currentUser.username},{challenge_level:x}).then(result=>{
-              x++;
-              console.log("x is "+x);
-              console.log(currentTrack.challenges[x].Location);
-              res.render('hunter/hunter_loop',{files:file,end:false,question:questions.questions[currentquestion],coords:currentTrack.challenges[x].Location});
-            });
           }
-      })
+          
+          //console.log(file);
+          User.updateOne({username:req.session.currentUser.username},{challenge_level:x}).then(result=>{
+            x++;
+            console.log("x is "+x);
+            console.log(currentTrack.challenges[x].Location);
+            res.render('hunter/hunter_loop',{files:file,end:false,question:questions.questions[currentquestion],coords:currentTrack.challenges[x].Location});
+          });
+        }
+    }
   });
+});
 
-router.get('/video/:filename', (req, res) => {
+router.get('/track_loop/video/:filename', (req, res) => {
     gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
       // Check if file
       if (!file || file.length === 0) {
@@ -67,5 +99,9 @@ router.get('/video/:filename', (req, res) => {
 router.get('/ar',(req,res)=>{
   res.render('hunter/ar');
 })
+
+function getRandomInt() {
+  return Math.floor(Math.random() * Math.floor(22));
+}
 
 module.exports = router;
