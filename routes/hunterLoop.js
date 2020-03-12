@@ -5,6 +5,7 @@ const GridFsStorage = require('multer-gridfs-storage');
 const grid = require('gridfs-stream');
 const Challenges = require('../models/challenges');
 const Tracks = require('../models/tracks');
+var User = require('../models/user');
 
 var currentTrack;
 var x = 0;
