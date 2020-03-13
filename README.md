@@ -330,6 +330,11 @@ These are some ideas that could be implemented in the near future in order to im
 - **Map Selection for Track Creation**
 
 
+# Privacy Notice
+
+By signing up to this app, you accept your email and name to be shared.
+
+
 # Licenses
 
 - **MIT Open License**
