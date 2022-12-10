@@ -19,7 +19,7 @@
     "dotenv": "^8.2.0",
     "e": "0.0.4",
     "ejs": "^2.7.4",
-    "express": "~4.16.1",
+    "express": "~4.17.3",
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.17.0",
     "fs": "0.0.1-security",
